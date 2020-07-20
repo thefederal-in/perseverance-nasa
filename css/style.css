@@ -141,7 +141,7 @@ html.is-leaving .transition-fade {
 
 .main-content{
     width: 100%;
-    max-width: 940px;
+    max-width: 850px;
     margin: 0 auto;
 }
 
@@ -157,7 +157,7 @@ html.is-leaving .transition-fade {
 
 .bgtext{
     position: absolute;
-    opacity: 0.2;
+    opacity: 0.4;
     z-index: -1;
     transition: all .8s;
 }
@@ -185,6 +185,9 @@ html.is-leaving .transition-fade {
     width: 160px;
 }
 
+.copy-head{  font-size: 18px; font-weight: bold; margin: 0 0 10px 0;}
+.copy-tag{  font-size: 18px; font-weight: bold; margin: 0 0 10px 0;}
+
 
 
 /* Mission Page - Overview*/
@@ -196,6 +199,13 @@ html.is-leaving .transition-fade {
 }
 
 */
+
+.mission-overview-btn, .mission-landing-btn, .mission-objectives-btn{
+    color: #FFF; text-decoration: none; letter-spacing: 0.02em; font-weight: bold;
+}
+.mission-overview-btn:hover, .mission-landing-btn:hover, .mission-objectives-btn:hover{
+    color: #000; 
+}
 
 .mission-home, .mission-overview, .mission-landing, .mission-objectives{
     font-family: 'Montserrat', sans-serif;
@@ -246,7 +256,8 @@ html.is-leaving .transition-fade {
     display: grid;
     grid-template-columns: 30% 70%;
     align-items: center;
-    margin: 0 0 25px -18px;
+    margin: -5px 0 60px -18px;
+    color: #FFF;
 }
 
 .mission-overview .point p:first-child{
@@ -264,6 +275,7 @@ html.is-leaving .transition-fade {
     align-items: center;
     width: 200px;
     margin: 0 auto;
+    color: #FFF;
 }
 .mission-objectives{
     display: grid;
@@ -276,12 +288,26 @@ html.is-leaving .transition-fade {
     align-items: center;
     width: 200px;
     margin: 0 auto;
+    color: #FFF;
 }
 
-.mission-objectives .coltwo  img{
-    width: 100%;
-}
+.mission-objectives .coltwo  img{width: 100%; margin-bottom: 15px;}
 .mission-landing header img{ width: 100px!important; }
 .mission-landing .colone{ text-align: left; }
 .mission-landing .colthree{ text-align: right; }
-.mission-landing .coltwo img{ width: 100%; }
+.mission-landing .coltwo{ margin-top:-20px }
+.mission-landing .coltwo img{ width: 100%; margin-bottom: 15px;}
+
+
+/* html, body {
+    overflow: hidden;
+    height: 100%;
+} */
+
+/* @media screen and (min-width: 1px) and (max-width: 767px) {
+    html, body {
+        overflow: auto;
+        height: auto;
+    }
+
+} */
