@@ -17,6 +17,20 @@ body{
     overflow: hidden;
 }
 
+.transition-fade {
+    transition: 500s;
+    opacity: 1;
+}
+  
+html.is-animating .transition-fade {
+    opacity: 0;
+    transform: translateY(0) translateX(0);
+}
+html.is-leaving .transition-fade {
+    opacity: 0;
+    transform: translateY(0) translateX(0);
+}
+
 /* Main Navigation */
 /* ==================================================== */
 
@@ -115,7 +129,7 @@ body{
 .mission-pg{
     background-image: url(../img/mars-dull-bg.jpg);
     background-repeat: no-repeat;
-    background-color: #69dfd1;
+    background-color: #c8cabb;
 }
 
 .rocket-pg{
@@ -145,6 +159,7 @@ body{
     position: absolute;
     opacity: 0.2;
     z-index: -1;
+    transition: all .2s;
 }
 
 
@@ -157,6 +172,11 @@ body{
     text-align: left;
 }
 
+.copy img{
+    float: left;
+    margin-right: 15px;
+    width: 165px;
+}
 
 
 
@@ -225,7 +245,7 @@ body{
 }
 .mission-objectives{
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 15% 70% 15%;
     align-items: center;
 }
 .mission-objectives header{
@@ -234,6 +254,10 @@ body{
     align-items: center;
     width: 200px;
     margin: 0 auto;
+}
+
+.mission-objectives .coltwo  img{
+    width: 100%;
 }
 .mission-landing header img{ width: 100px!important; }
 .mission-landing .colone{ text-align: left; }
