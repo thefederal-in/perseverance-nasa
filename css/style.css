@@ -159,7 +159,7 @@ html.is-leaving .transition-fade {
     position: absolute;
     opacity: 0.2;
     z-index: -1;
-    transition: all .2s;
+    transition: all .8s;
 }
 
 
@@ -172,10 +172,17 @@ html.is-leaving .transition-fade {
     text-align: left;
 }
 
+.copy{
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'Open Sans', sans-serif; 
+    margin: 0 0 14px 0;
+}
+
 .copy img{
     float: left;
-    margin-right: 15px;
-    width: 165px;
+    margin: 0 15px 15px 0;
+    width: 160px;
 }
 
 
@@ -189,6 +196,10 @@ html.is-leaving .transition-fade {
 }
 
 */
+
+.mission-home, .mission-overview, .mission-landing, .mission-objectives{
+    font-family: 'Montserrat', sans-serif;
+}
 
 .mission-home .mission-nav{
     display: grid;
@@ -223,13 +234,24 @@ html.is-leaving .transition-fade {
 .mission-overview{
     display: grid;
     grid-template-columns: 30% 55% 15%;
+    column-gap: 20px;
     align-items: center;
 }
+
+.mission-overview .point{
+    margin: 0 0 20px 0;
+}
+
 .mission-overview header{
     display: grid;
     grid-template-columns: 30% 70%;
     align-items: center;
-} 
+    margin: 0 0 25px -18px;
+}
+
+.mission-overview .point p:first-child{
+    font-weight: bold;
+}
 
 .mission-landing{
     display: grid;
