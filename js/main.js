@@ -28,5 +28,10 @@ $(".mission-objectives-btn").on("click", function(){
     $("body").addClass("mission-landing-pg")
     $(".bgtext").addClass("rotatetxt")
 })
+$(".atlasbtn").on("click", function(){
+    $(this).css("display", "none")
+    $(".atlasclose").css("display", "none")
+    $(".atlasopen").css("display", "block")
+})
 
 // $("#contact_form").fadeIn("slow");

@@ -157,7 +157,7 @@ html.is-leaving .transition-fade {
 
 .bgtext{
     position: absolute;
-    opacity: 0.4;
+    opacity: 0.3;
     z-index: -1;
     transition: all .8s;
 }
@@ -297,6 +297,85 @@ html.is-leaving .transition-fade {
 .mission-landing .colthree{ text-align: right; }
 .mission-landing .coltwo{ margin-top:-20px }
 .mission-landing .coltwo img{ width: 100%; margin-bottom: 15px;}
+
+
+.rocket-content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.vehicle-tag{ font-size: 12px;}
+.vehicle-name{ font-size: 40px; margin: 0 0 15px 0; line-height: 36px; color: #FFF;}
+
+.rockettext a{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    background-color: #000000;
+    text-decoration: none;
+    margin: 0 0 0 0;
+    color: #FFFFFF;
+    border: none;
+    text-transform: uppercase;
+    padding: 3px 6px;
+    cursor: pointer;
+}
+
+.rockettext a:hover{
+    background-color: #fd5f5f;
+    color: #FFF;
+}
+
+.atlasdiv{ position: relative;}
+
+.atlasbtn{
+    background-color: #fd5f5f;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid rgb(236, 35, 35, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: -32px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px;
+    transition: all .2s;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.atlasbtn:hover{  background-color: #000000; color: #FFF;}
+
+/* .atlasdiv::before{
+    content: 'Tap to know more';
+    width: 90px;
+    height: 90px;
+    background-color: #fd5f5f;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    padding: 20px 16px 25px 16px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    line-height: 14px;
+    color: #FFFFFF;
+    margin-left: -35px;
+    border: 5px solid rgb(236, 35, 35, 0.5);
+}
+.atlasdiv:hover::before{
+    background-color: #000000;
+} */
 
 
 /* html, body {

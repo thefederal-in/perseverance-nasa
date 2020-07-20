@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perseverance - NASA 2020</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="rocket-pg">
@@ -13,8 +14,8 @@
             <i id="toggleicon">+</i>
         </div>
         <div class="menu" id="menu">
-            <a href="#" data-name="Rocket"><img src="img/icons/rocket.svg" alt=""></a>
-            <a href="#" data-name="Mission" class="active"><img src="img/icons/mission.svg" alt=""></a>
+            <a href="#" data-name="Rocket" class="active"><img src="img/icons/rocket.svg" alt=""></a>
+            <a href="mission.html" data-name="Mission"><img src="img/icons/mission.svg" alt=""></a>
             <a href="#" data-name="Mars Helicopter"><img src="img/icons/helicopter.svg" alt=""></a>
             <a href="#" data-name="Perseverance"><img src="img/icons/rover.svg" alt=""></a>
         </div>
@@ -22,107 +23,30 @@
     
     <div class="main-content vertical-center">
 
-        <section class="mission-home" style="display:grid">
-
-            <div class="mission-nav">
-                <a href="#" class="mission-overview-btn">
-                    <img src="img/icons/overview.svg" alt="">
-                    <span>OVERVIEW</span>
-                </a>
-                <a href="#" class="mission-landing-btn">
-                    <img src="img/icons/landing.svg" alt="">
-                    <span>LANDING</span>
-                </a>
-                <a href="#" class="mission-objectives-btn">
-                    <img src="img/icons/objectives.svg" alt="">
-                    <span>OBJECTIVES</span>
-                </a>
-            </div>
-            
-            <img class="rocket-atlas" src="img/rover.png" alt="">
-        
-        </section>
-
-
-        <section class="mission-overview" style="display: none;">
-            <div class="colone">
-                <header>
-                    <img src="img/icons/overview.svg" alt=""> <h3>Overview</h3>
-                </header>
-                <div class="point">
-                    <p>Launch Window</p>
-                    <p>July 22 - Aug. 11, 2020</p>
-                </div>
-                <div class="point">
-                    <p>Landing</p>
-                    <p>Feb. 18, 2021</p>
-                </div>
-                <div class="point">
-                    <p>Mission Duration</p>
-                    <p>At Least One Mars Year (about 687 Earth days)</p>
+        <div class="rocket-content">
+            <div class="rocketimg animate__animated animate__fadeInLeft">
+                <div class="atlasdiv">
+                    <button class="atlasbtn animate__animated animate__fadeIn">Tap to know more</button>
+                    <img class="atlasclose animate__animated animate__fadeIn" src="img/atlaspng.png" style="display: block;" alt="">
+                    <img class="atlasopen animate__animated animate__fadeIn" src="img/atlaspng-open.png" style="display: none;"  alt="">
                 </div>
             </div>
-            <div class="coltwo">
-                <img src="img/overview-img1.jpg" alt="">
-                <p>On ancient Mars, water carved channels and transported sediments to form fans and deltas within lake basins. Examination of spectral data acquired from orbit show that some of these sediments have minerals that indicate chemical alteration by water. Here in Jezero Crater delta, sediments contain clays and carbonates.</p>
-                <h4>Site</h4>
-                <p>Jezero Crater</p>
-                <p>The Mars 2020 rover will land in Jezero crater on Mars and explore an ancient river delta and lake beds that may hold clues to past habitability and whether there was life on Mars. The colors represent differences in minerals exposed on and around the delta with include clays and carbonates that could be high priority targets for exploration by the rover. The delta extends approximately 8 km from the wall and out onto the floor of the crater.</p>
+            <div class="rockettext animate__animated animate__fadeInRight">
+                <span class="vehicle-tag">LAUNCH VEHICLE</span>
+                <h2 class="vehicle-name">ATLAS V-541</h2>
+                <p class="copy">The Mars 2020 spacecraft with its Perseverance Rover will launch on an Atlas V-541 rocket from Launch Complex 41 at Cape Canaveral Air Force Station, Florida.  The Atlas V is one of the largest rockets available for interplanetary flight.  This is the same type of rocket that launched the InSight and Curiosity to Mars.  The launch vehicle is provided by United Launch Alliance, Centennial Colorado.</p>
+                <div class="rocket-nav">
+                    <a href="#">Explore 3D</a>
+                    <a href="mission.html">Go To Mission</a>
+                </div>
             </div>
-            <div class="colthree">
-                <a href="#" class="mission-landing-btn">
-                    <img src="img/arrow-right.png" alt="">  <br> Landing
-                </a>
-             </div>
-        </section>
-       
-        
-        
-        <section class="mission-landing"  style="display: none;">
-
-            <div class="colone">
-                <a href="#" class="mission-overview-btn">
-                    <img src="img/arrow-left.png" alt="">  <br> Overview
-                </a>
-            </div>
-            <div class="coltwo">
-                 <header>
-                     <img src="img/icons/landing.svg" alt=""> <h3>Landing</h3>
-                 </header>
-            
-                 <img src="img/landing-img1.jpg" alt="">
-            
-                 <p>Earlier spacecrafts deployed their parachutes as early as possible after the spacecraft reached a desired velocity. Mars 2020's Range Trigger deploys the parachute based on the spacecraft's position relative to the desired landing target. That means the parachute could be deployed early or later depending on how close it is to its desired target. If the spacecraft were going to overshoot the landing target, the parachute would be deployed earlier. If it were going to fall short of the target, the parachute would be deployed later, after the spacecraft flew a little closer to its target while doing trajectory corrections. The module then separates from the parachute, finds a suitable landing spot using its new enhanced cameras and then deploys the skycrane and drops the rover. The booster module then untethers and flies a few hundered meters and crashes.</p>
-            </div>
-            <div class="colthree">
-                <a href="#" class="mission-objectives-btn">
-                    <img src="img/arrow-right.png" alt="">  <br> Objectives
-                </a>
-             </div>
-        </section> 
-        <section class="mission-objectives"  style="display: none;">
-
-            <div class="colone">
-                <a href="#" class="mission-landing-btn">
-                    <img src="img/arrow-left.png" alt="">  <br> Landing
-                </a>
-            </div>
-            <div class="coltwo">
-                 <header>
-                     <img src="img/icons/objectives.svg" alt=""> <h3>Objectives</h3>
-                 </header>
-            
-                 <img src="img/landing-img1.jpg" alt="">
-            
-                 <p>Earlier spacecrafts deployed their parachutes as early as possible after the spacecraft reached a desired velocity. Mars 2020's Range Trigger deploys the parachute based on the spacecraft's position relative to the desired landing target. That means the parachute could be deployed early or later depending on how close it is to its desired target. If the spacecraft were going to overshoot the landing target, the parachute would be deployed earlier. If it were going to fall short of the target, the parachute would be deployed later, after the spacecraft flew a little closer to its target while doing trajectory corrections. The module then separates from the parachute, finds a suitable landing spot using its new enhanced cameras and then deploys the skycrane and drops the rover. The booster module then untethers and flies a few hundered meters and crashes.</p>
-            </div>
-           
-        </section>
+        </div>
 
 
     </div>
-    <img src="img/icons/mission-hor.svg" class="bgtext verticalcentertxt" alt="">
+    <img src="img/icons/rocket-hor.svg" class="bgtext verticalcentertxt" alt="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>  
     <script src="js/main.js"></script>
     <script src="js/circlemenu.js"></script>
 </body>
