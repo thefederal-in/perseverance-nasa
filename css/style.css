@@ -14,7 +14,7 @@ body{
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: left bottom;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .transition-fade {
@@ -383,10 +383,18 @@ html.is-leaving .transition-fade {
     height: 100%;
 } */
 
-/* @media screen and (min-width: 1px) and (max-width: 767px) {
-    html, body {
-        overflow: auto;
-        height: auto;
+@media screen and (min-width: 1px) and (max-width: 767px) {
+    .mission-home .mission-nav {
+        width: 100%;
+        margin: 0 0 30px 0;
+        max-width: 375px;
     }
+    .mission-home img.rocket-atlas { width: 100%; }
+    .mission-overview { grid-template-columns: 100%; padding: 0 25px; display: grid; height: 600px; overflow: scroll;}
+    .mission-overview header { margin: 0; color: #FFF; }
+    .mission-landing { grid-template-columns: 100%; padding: 0 25px;}
+    .mission-landing .coltwo{ height: 500px; overflow: scroll; }
+    .mission-objectives { grid-template-columns: 100%; }
+    .mission-objectives .coltwo{ height: 500px; overflow: scroll; }
 
-} */
+}

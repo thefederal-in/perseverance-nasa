@@ -1,0 +1,317 @@
+html, body {
+    height:100%;
+} 
+body{
+    background-color: white;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    overflow: hidden;
+}
+
+.home-pg{
+    background-image: url(../img/mars-red-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-color: #69dfd1;
+}
+.rocket-pg{
+    background-image: url(../img/mars-blue-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-color: #69dfd1;
+}
+.mission-pg{
+    background-image: url(../img/mars-dull-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-color: #69dfd1;
+}
+.mission-landing-pg{
+    background-image: url(../img/landing-bg.jpg);
+    background-repeat: no-repeat;
+    background-color: #61d3a0;
+}
+
+.mission-nav{
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    text-align: center;
+    width: 600px;
+    margin: 0 auto 35px auto;
+    
+}
+
+.mission-nav a img{
+    width: 100px;
+}
+.mission-home img.rocket-atlas{
+    width: 800px;
+}
+
+.mission-nav a{ 
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+    line-height: 10px;
+}
+
+/* 
+font-family: 'Montserrat', sans-serif;
+font-family: 'Open Sans', sans-serif; 
+*/
+
+
+
+/* Main Navigation */
+/* ==================================================== */
+
+
+.toggle{
+    background-color: #000000;
+    color: #FFF;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    z-index: 3;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 50px;
+}
+
+.toggle:hover{
+    background-color: #fd5f5f;
+    color: #000000;
+}
+
+.menu{
+    /* background-color: #FFF; */
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    transform: scale(0);
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 2;
+    /* border: 2px solid #ccc; */
+    transition: 0.7s;
+}
+
+.menu a{
+    display: inline-block;
+    position: absolute;
+    font-size: 12px;
+    color: #BBB;
+    transition: 0.4s;
+    text-decoration: none;
+    background-color: #000000;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 50%;
+}
+
+.menu a:nth-child(1){
+    top: 28px;
+    left: 12px;
+}
+.menu a:nth-child(2){
+    top: 12px;
+    left: 30px;
+}
+.menu a:nth-child(3){
+    top: 12px;
+    left: 53px;
+}
+.menu a:nth-child(4){
+    top: 28px;
+    left: 70px;
+}
+
+.menu a:hover{
+    background-color: #fd5f5f;
+    color: #000000;
+}
+
+
+.main-content{
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.main-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 6px 0;
+    line-height: 45px;
+}
+
+.main-content .tagline {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+    line-height: 24px;
+    position: relative;
+}
+
+
+
+.main-content .leadtext {
+    width: 800px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 0 auto 15px auto;
+}
+
+.main-content .headcaption, .main-content .tagline, .main-content .leadtext{
+    text-align: center;
+}
+
+.main-content .main-page-rover{
+    width: 100%;
+    text-align: center;
+}
+
+.main-content .homepage-content{
+    margin: 75px 0 0 0;
+}
+
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.bgtext{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.rotatetxt{
+    transform: translateX(-46%) translateY(-50%) rotate(-90deg);
+    height: 18vh;
+    top: 50%;
+    left: 0;
+    text-align: left;
+}
+
+
+/* Rocket Page */
+
+.rocket-content{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+}
+.rocket-content img{
+    width:100%;
+}
+.rocket-content .section-name{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    margin: 0 0 10px 0;
+}
+.rocket-content h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 45px;
+    line-height: 36px;
+    margin: 0 0 0 0;
+    /* color: #FFFFFF; */
+}
+.rocket-content button{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    background-color: #000000;
+    margin: 0 0 0 0;
+    color: #FFFFFF;
+    border: none;
+    text-transform: uppercase;
+    padding: 3px 6px;
+}
+
+.rocket-content button:hover{
+    background-color: #fd5f5f;
+    color: #000000;
+}
+
+.rocket-content .section-body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+/* Mission Page - Overview*/
+/* ======================================== */
+.mission-landing-pg .main-navigation{
+    position: absolute;
+    bottom: -36px;
+    left: 50%;
+}
+
+.mission-overview{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+.mission-overview header{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    align-items: center;
+}
+
+.mission-landing{
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    align-items: center;
+}
+.mission-landing header{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+    width: 200px;
+    margin: 0 auto;
+}
+.mission-landing header img{ width: 100px!important; }
+.mission-landing .colone{ text-align: left; }
+.mission-landing .colthree{ text-align: right; }
+.mission-landing .coltwo img{ width: 100%; }
+
+
+
