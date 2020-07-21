@@ -83,30 +83,47 @@ html.is-leaving .transition-fade {
     transition: 0.4s;
     text-decoration: none;
     background-color: #000000;
-    width: 18px;
-    height: 18px;
+    /* width: 18px;
+    height: 18px; */
+    width: 14px;
+    height: 14px;
     text-align: center;
     line-height: 18px;
     border-radius: 50%;
 }
 
 .menu a:nth-child(1){
-    top: 28px;
+    /* top: 28px;
+    left: 12px; */
+    top: 34px;
     left: 12px;
 }
 .menu a:nth-child(2){
-    top: 12px;
-    left: 30px;
+    /* top: 12px;
+    left: 30px; */
+    top: 17px;
+    left: 20px;
 }
 .menu a:nth-child(3){
-    top: 12px;
-    left: 53px;
+    /* top: 12px;
+    left: 53px; */
+    top: 7px;
+    left: 36px;
 }
 .menu a:nth-child(4){
-    top: 28px;
-    left: 70px;
+    /* top: 28px;
+    left: 70px; */
+    top: 10px;
+    left: 54px;
 }
-
+.menu a:nth-child(5) {
+    top: 19px;
+    left: 68px;
+}
+.menu a:nth-child(6) {
+    top: 35px;
+    left: 73px;
+}
 .menu a.active{
     background-color: #fd5f5f;
     color: #000000;
@@ -395,6 +412,27 @@ html.is-leaving .transition-fade {
     .mission-landing { grid-template-columns: 100%; padding: 0 25px;}
     .mission-landing .coltwo{ height: 500px; overflow: scroll; }
     .mission-objectives { grid-template-columns: 100%; }
-    .mission-objectives .coltwo{ height: 500px; overflow: scroll; }
+    .mission-objectives .coltwo{ height: 500px; overflow: scroll; padding: 0 10px; }
+    .mission-objectives .colone { padding: 0 10px;}
+    .rocket-content {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .atlasclose, .atlasopen {
+        width: 60%;
+        margin: 0 auto;
+    }
+    .rockettext {
+        padding: 0 10px !important;
+        box-sizing: border-box;
+    }
+    .mission-objectives .colthree {
+        text-align: right;
+    }
+    .atlasbtn {
+        width: 80px;
+        height: 80px;
+        margin-left: 0;
+    }
 
 }
