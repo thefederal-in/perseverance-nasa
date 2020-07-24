@@ -95,35 +95,35 @@ html.is-leaving .transition-fade {
 .menu a:nth-child(1){
     /* top: 28px;
     left: 12px; */
-    top: 34px;
+    top: 32px;
     left: 12px;
 }
 .menu a:nth-child(2){
     /* top: 12px;
     left: 30px; */
-    top: 17px;
-    left: 20px;
+    top: 14px;
+    left: 22px;
 }
 .menu a:nth-child(3){
     /* top: 12px;
     left: 53px; */
     top: 7px;
-    left: 36px;
+    left: 41px;
 }
 .menu a:nth-child(4){
     /* top: 28px;
     left: 70px; */
-    top: 10px;
-    left: 54px;
+    top: 14px;
+    left: 61px;
 }
 .menu a:nth-child(5) {
-    top: 19px;
-    left: 68px;
+    top: 32px;
+    left: 72px;
 }
-.menu a:nth-child(6) {
+/* .menu a:nth-child(6) {
     top: 35px;
     left: 73px;
-}
+} */
 .menu a.active{
     background-color: #fd5f5f;
     color: #000000;
@@ -136,7 +136,11 @@ html.is-leaving .transition-fade {
 
 
 /* Background images based on section */
-
+.home-pg {
+    background-image: url(../img/mars-red-bg.jpg);
+    background-repeat: no-repeat;
+    background-color: #FD5F60;
+}
 .mission-landing-pg{
     background-image: url(../img/landing-bg.jpg);
     background-repeat: no-repeat;
@@ -400,6 +404,51 @@ html.is-leaving .transition-fade {
     height: 100%;
 } */
 
+/*Home page*/
+.home-pg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-page-rover {
+    width: 90%;
+    margin: 50px auto 0 auto;
+}
+.homepage-content {
+    text-align: center;
+}
+.homepage-content .headcaption {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 auto;
+}
+.homepage-content .tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    text-transform: uppercase;
+    font-weight: 400;
+    position: relative;
+    margin-bottom: 20px;
+}
+#border-bottom {
+    position: absolute;
+    width: 7%;
+    left: 47%;
+    top: 19.5%;
+    height: 1px;
+    background: #000;
+}
+.homepage-content .leadtext {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 400;
+}
+
 @media screen and (min-width: 1px) and (max-width: 767px) {
     .mission-home .mission-nav {
         width: 100%;
@@ -433,6 +482,15 @@ html.is-leaving .transition-fade {
         width: 80px;
         height: 80px;
         margin-left: 0;
+    }
+    .homepage-content {
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    #border-bottom {
+        width: 20%;
+        left: 41.5%;
+        top: 31%;
     }
 
 }
