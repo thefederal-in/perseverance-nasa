@@ -101,20 +101,20 @@ html.is-leaving .transition-fade {
 .menu a:nth-child(2){
     /* top: 12px;
     left: 30px; */
-    top: 14px;
+    top: 15px;
     left: 22px;
 }
 .menu a:nth-child(3){
     /* top: 12px;
     left: 53px; */
-    top: 7px;
-    left: 41px;
+    top: 5px;
+    left: 40px;
 }
 .menu a:nth-child(4){
     /* top: 28px;
     left: 70px; */
-    top: 14px;
-    left: 61px;
+    top: 15px;
+    left: 62px;
 }
 .menu a:nth-child(5) {
     top: 32px;
@@ -132,7 +132,34 @@ html.is-leaving .transition-fade {
     background-color: #fd5f5f;
     color: #000000;
 }
-
+.menu a.active span.names, .menu a:hover span.names {	
+    display: inline-block;	
+}
+.menu a span.names {	
+    font-family: 'Montserrat', sans-serif;	
+    font-weight: 400;	
+    font-size: 5px;	
+    line-height: 14px;	
+    position: absolute;	
+    text-transform: uppercase;	
+    color: #000;	
+    display: none;	
+}	
+.menu a:nth-child(1) span.names {	
+    right: 115%;	
+}	
+.menu a:nth-child(2) span.names {	
+    right: 105%;	
+}	
+.menu a:nth-child(3) span.names {	
+    left: 115%;	
+}	
+.menu a:nth-child(4) span.names {	
+    left: 115%;	
+}	
+.menu a:nth-child(5) span.names {	
+  left: 115%;   	
+}
 
 
 /* Background images based on section */
