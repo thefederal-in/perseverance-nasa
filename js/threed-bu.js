@@ -187,9 +187,9 @@ function init() {
 
         document.addEventListener("hotspot-hover", function(e){
 
-            console.log("hotpointhover", e);
-            // var selectedHotspot = e.hotpoint.entities.hot_spot_transparent
-            // selectedHotspot.visible = true
+            console.log("hotpointhover", );
+            var selectedHotspot = e.hotpoint.entities.hot_spot_transparent
+            selectedHotspot.visible = true
             // if ($('#main-column-container').hasClass('out'))
             //     return;
 
@@ -200,10 +200,8 @@ function init() {
         });
 
         document.addEventListener("hotspot-out", function(e){
-
-            console.log("hotpointout", e);
-            // var selectedHotspot = e.hotpoint.entities.hot_spot_transparent
-            // selectedHotspot.visible = false
+            var selectedHotspot = e.hotpoint.entities.hot_spot_transparent
+            selectedHotspot.visible = false
             // let drawer = state.drawer;
             // let camera = drawer.getCamera();
             // let ipm = state.inputmanager;
@@ -293,7 +291,7 @@ function init() {
     
     render()
 
-    var pickPointObject = null;
+    var Objectselected = false;
     
     function onMouseMove( event ) {
 
@@ -319,26 +317,28 @@ function init() {
         raycaster.setFromCamera( mouse, camera );
 
         var intersects = raycaster.intersectObjects( scene.children, true );
+
         
 
         roverparts = ["Mastcam-Z", "SuperCam"]
 
         if ( intersects.length > 0 ) {
-            console.log("intersects", event)
-            
-            
+            console.log("intersects", intersects[0].object.name)
             if (roverparts.indexOf(intersects[0].object.name) >= 0) {
+                // intersects[0].object.material.color.set(0xffcc00);
+                
+                intersects[0].object.material.color.set(0xffcc00)
+                intersects[0].object.callback( "hover" );
+                Objectselected = true;
+            }Ś
 
-                intersects[0].object.callback( "hover" );   
 
-            }else{
-               console.log("Other elements", intersects[0].object)
-            }
-
+        } else {
+            // intersects[0].object.material.color.set(0xff0000)
+            // intersects[0].object.material.color.set(0xff0000)
+            intersects[0].object.callback( "out" );
+            Objectselected = false;
             
-
-        }else{
-            console.log("No elements touched")
         }
     }
     
