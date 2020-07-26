@@ -107,8 +107,8 @@ html.is-leaving .transition-fade {
 .menu a:nth-child(3){
     /* top: 12px;
     left: 53px; */
-    top: 5px;
-    left: 40px;
+    top: 7px;
+    left: 42px;
 }
 .menu a:nth-child(4){
     /* top: 28px;
@@ -152,7 +152,9 @@ html.is-leaving .transition-fade {
     right: 105%;	
 }	
 .menu a:nth-child(3) span.names {	
-    left: 115%;	
+    /* left: 115%;	 */
+    left: -27%;
+    bottom: 85%;
 }	
 .menu a:nth-child(4) span.names {	
     left: 115%;	
@@ -490,7 +492,7 @@ body{ transition: all 1s; }
     position: absolute;
     width: 7%;
     left: 47%;
-    top: 19.5%;
+    top: 18.5%;
     height: 1px;
     background: #000;
 }
