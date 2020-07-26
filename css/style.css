@@ -160,7 +160,16 @@ html.is-leaving .transition-fade {
 .menu a:nth-child(5) span.names {	
   left: 115%;   	
 }
-
+.copter-btn{
+    transition: all .2s;
+}
+.copter-btn:hover circle{
+    fill: #fd5f5f;
+}
+.copter-btn:hover path{
+    fill: #000000;
+    translate: translate(0, 0) rotate(-45deg)
+}
 
 /* Background images based on section */
 .home-pg {
@@ -236,6 +245,22 @@ html.is-leaving .transition-fade {
 .copy-head{  font-size: 18px; font-weight: bold; margin: 0 0 10px 0;}
 .copy-tag{  font-size: 18px; font-weight: bold; margin: 0 0 10px 0;}
 
+
+
+/* Modelbox - Overview*/
+/* ======================================== */
+
+.modelbox {
+    width: 30%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    right: 0;
+}
+
+body{ transition: all 1s; }
 
 
 /* Mission Page - Overview*/
