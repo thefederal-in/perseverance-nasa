@@ -1,10 +1,7 @@
 var container, stats;
 var camera, controls, scene, renderer, model, raycaster, mouse;
 var loader, intersects,modelchildren = [];
-// -0.834, 1.985, 0.785
-var datapoints = [{"tag":"pilot-hotpoint","name":"Mastcam-Z","position":{"x":-0.834,"y":1.985,"z":0.785},"line-length":350,"link":"app/hotpoints/hotpoint_crew.html","text":"Loading info ...","image":"app/img/hotpoints/CREW.png","image-scale":150},{"tag":"pilot-hotpoint","name":"SuperCam","position":{"x":-0.276,"y":2.132,"z":0.766},"line-length":350,"link":"app/hotpoints/hotpoint_b767-200er_seating.html","text":"Loading info ...","image":"app/img/hotpoints/SEATING.png","image-scale":150}]
-// var datapoints = [{"tag":"pilot-hotpoint","name":"Crew","position":{"x":-0.834,"y":1.985,"z":0.785},"line-length":350,"link":"app/hotpoints/hotpoint_crew.html","text":"Loading info ...","image":"app/img/hotpoints/CREW.png","image-scale":150},{"tag":"pilot-hotpoint","name":"Seat Specifications","position":{"x":-110,"y":200,"z":400},"line-length":350,"link":"app/hotpoints/hotpoint_b767-200er_seating.html","text":"Loading info ...","image":"app/img/hotpoints/SEATING.png","image-scale":150},{"tag":"engine-hotpoint","name":"Aircraft Specifications","position":{"x":-370,"y":100,"z":290},"line-length":350,"link":"app/hotpoints/hotpoint_b767-200er_fuel.html","text":"Loading info ...","image":"app/img/hotpoints/FUEL.png","image-scale":150},{"tag":"body-hotpoint","name":"Interior Specifications","position":{"x":-110,"y":210,"z":175},"line-length":350,"link":"app/hotpoints/hotpoint_b767-200er_inflight.html","text":"Loading info ...","image":"app/img/hotpoints/INFLIGHT.png","image-scale":150},{"tag":"tail-hotpoint","name":"Branding and Livery","position":{"x":-40,"y":375,"z":-689},"line-length":350,"link":"app/hotpoints/hotpoint_tail.html","text":"Loading info ...","image":"app/img/hotpoints/ACMI.png","image-scale":150},{"tag":"cargo-hotpoint","name":"Cargo","position":{"x":-120,"y":180,"z":-300},"line-length":350,"link":"app/hotpoints/hotpoint_b767-200er_cargo.html","text":"Loading info ...","image":"app/img/hotpoints/CARGO.png","image-scale":150}]
-
+var datapoints = [{"tag":"pilot-hotpoint","name":"Mastcam-Z","position":{"x":-0.834,"y":1.985,"z":0.785}, "camerapos":{"x": -1.40, "y": 2.48, "z": 1.84}, "camerarot":{"x": -0.93, "y": -0.42, "z": -0.50}, "line-length":350,"link":"app/hotpoints/hotpoint_crew.html","text":"Loading info ...","image":"app/img/hotpoints/CREW.png","image-scale":150},{"tag":"pilot-hotpoint","name":"SuperCam","position":{"x":-0.276,"y":2.132,"z":0.766}, "camerapos":{"x":-0.10, "y":2.31, "z":2.97}, "camerarot":{"x":-0.58, "y":-0.24, "z":-0.15}, "line-length":350,"link":"app/hotpoints/hotpoint_b767-200er_seating.html","text":"Loading info ...","image":"app/img/hotpoints/SEATING.png","image-scale":150}]
 
 init();
 // animate();
@@ -50,7 +47,7 @@ function init() {
 
 
 
-    var Hotpoint = function ( hotpoint_data ) {
+    var Hotspot = function ( hotpoint_data ) {
         "use strict";
     
         var self = this;
@@ -63,77 +60,48 @@ function init() {
     
         self.group = new THREE.Group();
     
-        self.entities = {
-        };
+        self.entities = { };
     
-        self.makeVisible = function( b ){
-
-            self.entities.red_dot_transparent.visible = !b;
-        };
+        self.makeVisible = function( b ){ self.entities.red_dot_transparent.visible = !b; };
     
         // --------------------------------
-    
-        var red_dot_geometry_data = {
-                radius : 0.04,
-                widthSegments : 32,
-                heightSegments : 32,
-                phiStart : 0,
-                phiLength : 2 * Math.PI,
-                thetaStart : 0,
-                thetaLength : Math.PI
-        };
-        var red_dot_geometry = new THREE.SphereGeometry( 
-            red_dot_geometry_data.radius, 
-            red_dot_geometry_data.widthSegments, 
-            red_dot_geometry_data.heightSegments, 
-            red_dot_geometry_data.phiStart, 
-            red_dot_geometry_data.phiLength, 
-            red_dot_geometry_data.thetaStart,
-            red_dot_geometry_data.thetaLength
+        // radius : 0.04, widthSegments : 32, heightSegments : 32, phiStart : 0, phiLength : 2 * Math.PI, thetaStart : 0, thetaLength : Math.PI
+        var hotspot_geometry = new THREE.SphereGeometry( 
+            0.04, 32, 32, 0, 2 * Math.PI, 0,  Math.PI
         );
-        var red_dot = self.entities.red_dot =  new THREE.Mesh( red_dot_geometry, new THREE.MeshBasicMaterial( { 
-            color: 0xff0000//,
-            //transparent: true,
-            //opacity: 0.5 
-        } ) );
-        red_dot.position.set( self.data.position.x, self.data.position.y, self.data.position.z );
-    
-        red_dot.callback = function( action ) {
-            self.callback(self, red_dot, action);
-        };
 
-        // red_dot.name = "red_dot" + self.data.name;
-        red_dot.name = self.data.name;
+        var hot_spot = self.entities.hot_spot =  new THREE.Mesh( hotspot_geometry, new THREE.MeshBasicMaterial( {  color: 0xff0000  } ) );
         
-        red_dot.old_raycast = red_dot.raycast;
+        hot_spot.position.set( self.data.position.x, self.data.position.y, self.data.position.z );
     
-        red_dot.raycast = function( raycaster, intersects ){
+        hot_spot.callback = function( action ) { self.callback(self, hot_spot, action); };
+
+        hot_spot.name = self.data.name;
+        
+        hot_spot.old_raycast = hot_spot.raycast;
     
-            red_dot.scale.set( 4, 4, 4 );
+        hot_spot.raycast = function( raycaster, intersects ){
     
-            red_dot.updateMatrixWorld();
+            hot_spot.scale.set( 4, 4, 4 );
     
-            var return_value = red_dot.old_raycast(raycaster, intersects );
+            hot_spot.updateMatrixWorld();
     
-            red_dot.scale.set( 1, 1, 1 );
+            var return_value = hot_spot.old_raycast(raycaster, intersects );
     
-            red_dot.updateMatrixWorld();
+            hot_spot.scale.set( 1, 1, 1 );
+    
+            hot_spot.updateMatrixWorld();
     
             return return_value;
         };
     
-        var red_dot_transparent = self.entities.red_dot_transparent = new THREE.Mesh( red_dot_geometry, new THREE.MeshBasicMaterial( { 
-            color: 0xff0000,
-            transparent: true,
-            opacity: 0.3 
-        } ) );
-        red_dot_transparent.scale.set( 1, 1, 1 );
-        red_dot_transparent.position.set( self.data.position.x, self.data.position.y, self.data.position.z );
-        red_dot_transparent.raycast = function(){};
-    
-    
-        self.group.add(red_dot);
-        self.group.add(red_dot_transparent);
+        var hot_spot_transparent = self.entities.hot_spot_transparent = new THREE.Mesh( hotspot_geometry, new THREE.MeshBasicMaterial( {  color: 0xff0000, transparent: true, opacity: 0.3 } ) );
+        hot_spot_transparent.scale.set( 1, 1, 1 );
+        hot_spot_transparent.position.set( self.data.position.x, self.data.position.y, self.data.position.z );
+        hot_spot_transparent.raycast = function(){};
+
+        self.group.add(hot_spot);
+        self.group.add(hot_spot_transparent);
     
         return this;
     };
@@ -144,42 +112,42 @@ function init() {
     
     hotpoints.forEach( function(currentValue, index, array) {
         // console.log("hotpoints", currentValue)
-        var hotPoint = new Hotpoint( currentValue, index, array  );
+        var hot_spot = new Hotspot( currentValue, index, array  );
 
-        scene.add( hotPoint.group );
+        scene.add( hot_spot.group );
 
-        hotpoints_objects_array.push(hotPoint);
+        hotpoints_objects_array.push(hot_spot);
 
-        hotPoint.callback = function(_this, sprite, action){
+        hot_spot.callback = function(_this, sprite, action){
 
             var e;
             if (action === "click"){
                 e = document.createEvent('Event');
-                e.initEvent("app-hotpoint-clicked", true, true);
+                e.initEvent("hotspot-clicked", true, true);
                 e.hotpoint =_this;
                 document.dispatchEvent(e);
             }
             else if (action === "hover"){
                 e = document.createEvent('Event');
-                e.initEvent("app-hotpoint-hover", true, true);
+                e.initEvent("hotspot-hover", true, true);
                 e.hotpoint =_this;
                 document.dispatchEvent(e);
             }
             else if (action === "focus"){
                 e = document.createEvent('Event');
-                e.initEvent("app-hotpoint-clicked", true, true);
+                e.initEvent("hotspot-clicked", true, true);
                 e.hotpoint =_this;
                 document.dispatchEvent(e);
             } 
             else if (action === "out"){
                 e = document.createEvent('Event');
-                e.initEvent("app-hotpoint-out", true, true);
+                e.initEvent("hotspot-out", true, true);
                 e.hotpoint =_this;
                 document.dispatchEvent(e);
             }
             else if (action === "blur"){
                 e = document.createEvent('Event');
-                e.initEvent("app-hotpoint-clicked", true, true);
+                e.initEvent("hotspot-clicked", true, true);
                 e.hotpoint =_this;
                 document.dispatchEvent(e);
             }
@@ -202,7 +170,7 @@ function init() {
 
         document.body.appendChild(hot_point_name);
 
-        document.addEventListener("app-hotpoint-hover", function(e){
+        document.addEventListener("hotspot-hover", function(e){
 
             if ($('#main-column-container').hasClass('out'))
                 return;
@@ -213,24 +181,75 @@ function init() {
             setHotPointNamePosition( e.hotpoint );
         });
 
-        document.addEventListener("app-hotpoint-out", function(e){
+        // document.addEventListener("hotspot-out", function(e){
 
-            let drawer = state.drawer;
-            let camera = drawer.getCamera();
-            let ipm = state.inputmanager;
-            let canvas = drawer.getRenderer().domElement;
+        //     let drawer = state.drawer;
+        //     let camera = drawer.getCamera();
+        //     let ipm = state.inputmanager;
+        //     let canvas = drawer.getRenderer().domElement;
 
-            let hotpoint = e.hotpoint;
+        //     let hotpoint = e.hotpoint;
 
-            let entity = hotpoint.entities.red_dot_transparent;
+        //     let entity = hotpoint.entities.red_dot_transparent;
 
-            hot_point_name.style.display = "none";
-            hot_point_name.hotpoint = null;
-        });
+        //     hot_point_name.style.display = "none";
+        //     hot_point_name.hotpoint = null;
+        // });
 
-        document.addEventListener("app-hotpoint-clicked", function(e){
+        document.addEventListener("hotspot-clicked", function(e){
+            console.log("Trigger camera animation", e.hotpoint.data.position)
+            controls.enabled = false;
+            var hotpoint_pos = e.hotpoint.data.camerapos
+            var hotpoint_rot = e.hotpoint.data.camerarot
 
-            console.log("Trigger camera animation")
+            controls.maxPolarAngle = Math.PI;
+            controls.minPolarAngle=0;
+
+            gsap.to( camera.position, {
+                duration: 1,
+                x: hotpoint_pos.x,
+                y: hotpoint_pos.y,
+                z: hotpoint_pos.z,
+                onUpdate: () => {
+                    controls.enabled = false;
+                },
+                onComplete: () => {
+                    controls.enabled = true;
+                    
+                }
+            } );
+            
+            gsap.to( camera.rotation, {
+                duration: 1,
+                x: hotpoint_rot.x,
+                y: hotpoint_rot.y,
+                z: hotpoint_rot.z,
+                onUpdate: () => {
+                    controls.enabled = false;
+                },
+                onComplete: () => {
+                    controls.enabled = true;
+                    
+                }
+            } );
+            
+            // gsap.to( camera.position, {
+            //     duration: 1,
+            //     x:-2.16,
+            //     y:2.02,
+            //     z:2.56,
+            //     onUpdate: () => {
+            //         controls.enabled = false;
+            //         // camera.lookAt(-2.16, 1.02, 2.56);
+
+            //     },
+            //     onComplete: () => {
+            //         // camera.lookAt(hotpoint_pos.x, hotpoint_pos.y, hotpoint_pos.z);
+            //         // camera.lookAt(-2.16, 1.02, 2.56);
+            //         controls.enabled = true;
+                    
+            //     }
+            // } );
         });
     
 
@@ -380,5 +399,5 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth,window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;
 
-    camera.updateProjectionMatrix();
+    // camera.updateProjectionMatrix();
 })
