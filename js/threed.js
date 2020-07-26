@@ -1,7 +1,8 @@
 var container, stats;
 var camera, controls, scene, renderer, model, raycaster, mouse;
 var loader, intersects,modelchildren = [];
-var datapoints = [{"tag":"pilot-hotpoint","name":"Mastcam-Z","position":{"x":-0.834,"y":1.985,"z":0.785}, "camerapos":{"x": -1.40, "y": 2.48, "z": 1.84}, "camerarot":{"x": -0.93, "y": -0.42, "z": -0.50}, "line-length":350,"link":"app/hotpoints/hotpoint_crew.html","text":"Loading info ...","image":"app/img/hotpoints/CREW.png","image-scale":150},{"tag":"pilot-hotpoint","name":"SuperCam","position":{"x":-0.276,"y":2.132,"z":0.766}, "camerapos":{"x":-0.10, "y":2.31, "z":2.97}, "camerarot":{"x":-0.58, "y":-0.24, "z":-0.15}, "line-length":350,"link":"app/hotpoints/hotpoint_b767-200er_seating.html","text":"Loading info ...","image":"app/img/hotpoints/SEATING.png","image-scale":150}]
+var datapoints = [{"tag":"pilot-hotpoint","name":"Mastcam-Z","position":{"x":-0.834,"y":1,"z":0.785}, "camerapos":{ "x": -1.4448278530518521, "y": 1.0025775380665005, "z": 2.1155599850918647}, "camerarot":{"x": -0.44, "y": -0.55, "z": -0.24}, "line-length":350,"link":"app/hotpoints/hotpoint_crew.html","text":"Loading info ...","image":"app/img/hotpoints/CREW.png","image-scale":150},{"tag":"pilot-hotpoint","name":"SuperCam","position":{"x":-0.276,"y":1.132,"z":0.766}, "camerapos":{"x": -0.83, "y": 1.27, "z": 2.47}, "camerarot":{"x": -0.47, "y": -0.29, "z": -0.14}, "line-length":350,"link":"app/hotpoints/hotpoint_b767-200er_seating.html","text":"Loading info ...","image":"app/img/hotpoints/SEATING.png","image-scale":150}]
+// var datapoints = [{"tag":"pilot-hotpoint","name":"Mastcam-Z","position":{"x":-0.834,"y":1.985,"z":0.785}, "camerapos":{"x": -2.84, "y": 1.13, "z": 2.84}, "camerarot":{"x": -0.93, "y": -0.42, "z": -0.50}, "line-length":350,"link":"app/hotpoints/hotpoint_crew.html","text":"Loading info ...","image":"app/img/hotpoints/CREW.png","image-scale":150},{"tag":"pilot-hotpoint","name":"SuperCam","position":{"x":-0.276,"y":2.132,"z":0.766}, "camerapos":{"x":-0.10, "y":2.31, "z":2.97}, "camerarot":{"x":-0.58, "y":-0.24, "z":-0.15}, "line-length":350,"link":"app/hotpoints/hotpoint_b767-200er_seating.html","text":"Loading info ...","image":"app/img/hotpoints/SEATING.png","image-scale":150}]
 
 init();
 // animate();
@@ -11,9 +12,12 @@ function init() {
     var scene = new THREE.Scene();
 
     camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000)
-        camera.position.x = -5;
-        camera.position.y = 2;
-        camera.position.z = 5;
+        // camera.position.x = -3.38;
+        // camera.position.y = 3;
+        // camera.position.z = 2.30;
+        camera.position.set(-1.98, 1.17, 3.71)
+        // camera.rotation.set(-0.65, -0.82, -0.51)
+        
         
     renderer = new THREE.WebGLRenderer({antialias: true, alpha:true});
     renderer.setSize(window.innerWidth,window.innerHeight);
@@ -27,10 +31,20 @@ function init() {
 
     document.body.appendChild(renderer.domElement);
 
+    // var axesHelper = new THREE.AxesHelper( 5 );
+    // scene.add( axesHelper );
+
+    // var size = 10;
+    // var divisions = 10;
+
+    // var gridHelper = new THREE.GridHelper( size, divisions );
+    // scene.add( gridHelper );
+
     // Load the 3D model
     loader = new THREE.GLTFLoader();
     loader.load('perseverance.gltf', function(gltf){
         model = gltf.scene
+        model.position.set(0, -1, 0)
 
         // modelchildren.push(
         // intersects = raycaster.intersectObjects(model.children[0].children), true);
