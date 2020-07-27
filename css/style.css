@@ -899,5 +899,31 @@ body{ transition: all 1s; }
     }
 
     .copy img{ width: 195px;}
+    #objective-a .svg-obj {
+        grid-template-columns: auto;
+    }
+    .obj-desc h3 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .parentDiv p, #objective-c p, #objective-b p, #objective-a p {
+        font-size: 12px;
+        line-height: 16px;
+        padding-top: 0;
+    }
+    #objective-c .obj-desc, #objective-b .obj-desc, #objective-a .obj-desc {
+        grid-template-columns: 33% 77%;
+    }
+    .parentDiv {
+        grid-template-columns: 39% 63%;
+    }
+    .parentDiv .svg-obj {
+        width: 40%;
+        margin: 0 auto;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
 
 }
