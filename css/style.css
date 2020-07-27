@@ -70,7 +70,7 @@ html.is-leaving .transition-fade {
     left: 0;
     right: 0;
     margin: auto;
-    z-index: 2;
+    z-index: 0;
     /* border: 2px solid #ccc; */
     transition: 0.7s;
 }
