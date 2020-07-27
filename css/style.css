@@ -809,6 +809,7 @@ body{ transition: all 1s; }
     grid-template-columns: 130%;
     align-items: center;
 }
+.nav-tabs { border-bottom: none; transition: all .2s; }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover, .nav-tabs>li>a, .nav-tabs>li>a:focus, .nav-tabs>li>a:hover {
     border-color: transparent;
     background: transparent;
@@ -819,6 +820,8 @@ body{ transition: all 1s; }
     line-height: 16px;
     color: #000000 !important;
     font-weight: 400;
+    padding: 10px 0;
+    margin-right: 40px;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li>a:hover {
     border-bottom: 3px solid #f00;
