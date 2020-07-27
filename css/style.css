@@ -926,4 +926,9 @@ body{ transition: all 1s; }
         grid-row-end: 2;
     }
 
+    .nav-tabs>li>a {
+        margin-right: 0;
+        padding: 5px 10px
+    }
+
 }
