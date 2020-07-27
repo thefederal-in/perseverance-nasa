@@ -182,7 +182,7 @@ html.is-leaving .transition-fade {
 .mission-landing-pg{
     background-image: url(../img/mars-yellow-bg.jpg);
     background-repeat: no-repeat;
-    background-color: #61d3a0;
+    background-color: #F1AE00;
 }
 
 .mission-pg{
@@ -803,6 +803,21 @@ body{ transition: all 1s; }
     display: grid;
     grid-template-columns: 130%;
     align-items: center;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover, .nav-tabs>li>a, .nav-tabs>li>a:focus, .nav-tabs>li>a:hover {
+    border-color: transparent;
+    background: transparent;
+}
+.nav-tabs>li>a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000 !important;
+    font-weight: 400;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li>a:hover {
+    border-bottom: 3px solid #f00;
+    font-weight: 700;
 }
 @media screen and (min-width: 1px) and (max-width: 767px) {
     .mission-home .mission-nav {
