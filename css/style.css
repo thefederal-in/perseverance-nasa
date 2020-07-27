@@ -262,7 +262,47 @@ html.is-leaving .transition-fade {
     right: 0;
 }
 
+.copter-model-text h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    color: #FFFFFF;
+}
+
+.copter-model-text p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 0 0 10px 0;
+    color: #FFFFFF;
+}
+
+.model-close-btn, .close3dmodel{
+    border: none;
+    background-color: #000;
+    color: #FFF;
+    padding: 10px;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
 body{ transition: all 1s; }
+
+.model3dbox{
+    width: 30%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+}
 
 
 /* Mission Page - Overview*/

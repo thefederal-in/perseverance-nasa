@@ -280,8 +280,10 @@ function init() {
     addLight(new THREE.DirectionalLight(0xFFFFFF, 1, 500), 5, 10, 7.5);
 
     var controls = new THREE.OrbitControls(camera);
-    controls.enableDamping = true
-    controls.maxPolarAngle = Math.PI/2; 
+    controls.enableDamping = true;
+    controls.maxPolarAngle = Math.PI/2;
+    controls.minDistance = 2;
+    controls.maxDistance = 6;
 
 
     var render = function(){
@@ -381,6 +383,10 @@ function init() {
                 console.log("intersects", intersects[0].object.name)
                 document.getElementById("Objectname").innerHTML = "<h3>"+intersects[0].object.name+"</h3>"
                 console.log("intersects", intersects[0].object.material.color)
+                $('.model3dbox').css('display', 'block');
+                $('.model3dbox').addClass('animate__fadeInLeft');
+                $('.model3dbox').removeClass('animate__fadeOutLeft');
+                // $('.label').removeClass('animate__fadeOutRight');
                 intersects[0].object.callback( "click" );
             }else {
                 global_area_clicked();
@@ -397,7 +403,41 @@ function init() {
     window.addEventListener( 'mousemove', onMouseMove, false );
     window.addEventListener( 'click', onClick, false );
     
+    $('.close3dmodel').on("click", function(){
+        // $('.model3dbox').css('display', 'block');
+        // alert("test")
+        $('.model3dbox').removeClass('animate__fadeInLeft');
+        $('.model3dbox').addClass('animate__fadeOutLeft');
+        controls.enabled = false;
+        gsap.to( camera.position, {
+            duration: 1,
+            x: -1.98,
+            y: 1.17,
+            z: 3.71,
+            onUpdate: () => {
+                controls.enabled = false;
+            },
+            onComplete: () => {
+                controls.enabled = true;
+                
+            }
+        } );
         
+        gsap.to( camera.rotation, {
+            duration: 1,
+            x: -0.30,
+            y: -0.47,
+            z: -0.14,
+            onUpdate: () => {
+                controls.enabled = false;
+            },
+            onComplete: () => {
+                controls.enabled = true;
+                
+            }
+        } );
+        
+    })
     
  
 

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .label {
+        /* .label {
             position: absolute;
             z-index: 1;
             top: 20px;
@@ -16,7 +16,7 @@
             background-color: #000000;
             color: #FFFFFF;
             padding: 10px;
-		}
+		} */
     </style>
 </head>
 <body class="mission-pg">
@@ -41,7 +41,11 @@
                 <a href="rover-3d.html" data-name="Perseverance" class="active"><img src="img/icons/rover.svg" alt=""><span class="names">rover</span></a>
             </div>
         </nav>
-        <div id="Objectname" class="label">Click on the red hotspots to Know more</div>
+        <div class="model3dbox animate__animated" style="display: none;">
+            <button class="close3dmodel">X</button>
+            <div  id="Objectname" class="label"> Click on the red hotspots to Know more  </div>
+        
+        </div>
         <div class="main-content vertical-center">
     
             <div id="canvas-wrapper"></div>
@@ -59,6 +63,14 @@
     <script src="js/threed.js"></script>
     <script src="js/circlemenu.js"></script>
     <script>
+
+    // $('close3dmodel').on("click", function(){
+    //     // $('.model3dbox').css('display', 'block');
+    //     alert("test")
+    //     $('.model3dbox').removeClass('animate__fadeInLeft');
+    //     $('.model3dbox').addClass('animate__fadeOutLeft');
+        
+    // })
         var width = 100,
         perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
         EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
