@@ -190,6 +190,12 @@ html.is-leaving .transition-fade {
     background-repeat: no-repeat;
     background-color: #c8cabb;
 }
+.copter-pg{
+    background-image: url(../img/mars-bluegray-bg.jpg);
+    background-repeat: no-repeat;
+    background-color: #4c6570;
+
+}
 
 .rocket-pg{
     background-image: url(../img/mars-blue-bg.jpg);
@@ -670,6 +676,55 @@ body{ transition: all 1s; }
   margin-top: 20px;
   font-family: 'Montserrat', sans-serif;
 }
+
+
+
+/* Copter page */
+.copter-home-content{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+.copter-home-content .colone{ text-align: center; }
+.copter-home-content .colone img{ width: 100%; }
+.copter-home-content a{ 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    background-color: #000000;
+    text-decoration: none;
+    margin: 0 0 0 0;
+    color: #FFFFFF;
+    border: none;
+    text-transform: uppercase;
+    padding: 3px 6px;
+    cursor: pointer; 
+}
+.copter-home-content p{     
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 15px;
+    line-height: 18px; 
+}
+
+.warning-copter{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    width: 400px;
+    align-items: end;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+
+}
+
+
 @keyframes animation {
   10% {
     opacity: 0.9;
@@ -731,6 +786,28 @@ body{ transition: all 1s; }
     .modelbox {
         width: 100%;
         background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .copter-home-content {
+        grid-template-columns: 100%;
+        padding: 30px;
+        margin-top: -120px;
+    }
+    .copter-home-content .coltwo {
+        overflow: auto;
+        height: 347px;
+        margin-top: 20px;
+    }
+
+    .warning-copter{
+        width: 330px;
+    
+    }
+
+    .warning-text{
+        display: block;
+        background-color: #000;
+        padding: 10px;
     }
 
 }
