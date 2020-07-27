@@ -71,7 +71,7 @@ $(".mission-objectives-btn").on("click", function(){
     $(".mission-objectives").css("display", "grid")
     $(".bgtext").addClass("rotatetxt")
     $("body").removeClass()
-    $("body").addClass("mission-landing-pg")
+    $("body").addClass("mission-objective-pg")
     $(".bgtext").addClass("rotatetxt")
 })
 $(".atlasbtn").on("click", function(){
