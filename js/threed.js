@@ -359,6 +359,8 @@ function init() {
             document.dispatchEvent(e);
         }
 
+        $('.warningicon3d').css('display', 'none');
+
         if ( intersects.length > 0 ) {
 
             if (roverparts.indexOf(intersects[0].object.name) >= 0) {
