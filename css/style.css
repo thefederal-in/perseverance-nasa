@@ -723,7 +723,12 @@ body{ transition: all 1s; }
     cursor: pointer;
 
 }
-
+.warnicon{     
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 14px;
+}
 
 @keyframes animation {
   10% {

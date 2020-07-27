@@ -49,7 +49,10 @@
         </section>
     </div>
     <section class="warning-copter">
-        <img id="warning-icon" src="img/icons/warning.png" alt="">
+        <div class="warnicon">
+            <p class="animate__animated animate__infinite animate__pulse">click here</p>
+            <img id="warning-icon" src="img/icons/warning.png" alt="">
+        </div>
         <p class="warning-text animate__animated animate__fadeInRight" style="display: none;">Ingenuity features four specially made carbon-fiber blades, arranged into two rotors that spin in opposite directions at around 2,400 rpm – many times faster than a passenger helicopter on Earth. It also has innovative solar cells, batteries, and other components. Ingenuity doesn't carry science instruments and is a separate experiment from the Mars 2020 Perseverance rover</p>
     </section>
     <img src="img/icons/copter-txt.svg" class="bgtext verticalcentertxt" alt="">
@@ -122,11 +125,13 @@
             
            if(warningbtnclicked === 0){
                 $(".warning-text").css("display", "block");
+                $(".warnicon p").css("display", "none");
                 $('.warning-text').addClass('animate__fadeInRight');
                 $('.warning-text').removeClass('animate__fadeOutRight');
                 warningbtnclicked = 1;
            }else{
                 // $(".warning-text").css("display", "none")
+                $(".warnicon p").css("display", "block");
                 $('.warning-text').removeClass('animate__fadeInRight');
                 $('.warning-text').addClass('animate__fadeOutRight');
                 warningbtnclicked = 0;
