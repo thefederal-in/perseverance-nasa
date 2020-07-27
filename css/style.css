@@ -739,6 +739,71 @@ body{ transition: all 1s; }
     opacity: 0.75;
   }
 }
+.parentDiv {
+    display: grid;
+    grid-template-columns: 50% 65% 40%;
+    align-items: center;
+    margin: 10% 0;
+}
+.obj-desc {
+    text-align: right;
+    padding: 10px 10px;
+    box-sizing: border-box;
+}
+.obj-desc h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    /* margin-bottom: 28%; */
+    color: #000000;
+    font-weight: 700;
+    border-bottom: 3px solid #f00;
+    display: inline;
+    padding-bottom: 3%;
+}
+.obj-desc h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    line-height: 46px;
+    margin: 41px 0 0 0;
+    color: #000000;
+    font-weight: 400;
+}
+.parentDiv p, #objective-c p, #objective-b p, #objective-a p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+    margin: 0 20px;
+    padding-top: 9%;
+    text-align: left;
+}
+.svg-obj {
+    padding-top: 5%;
+}
+
+#objective-c .svg-obj, #objective-b .svg-obj {
+    text-align: center;
+}
+#objective-c .svg-obj svg {
+    width: 40%;
+}
+#objective-b .svg-obj svg {
+    width: 60%;
+}
+#objective-c .obj-desc, #objective-b .obj-desc, #objective-a .obj-desc {
+    display: grid;
+    grid-template-columns: 42% 95%;
+    align-items: center;
+}
+#objective-a .obj-desc h3 {
+    text-align: left;
+}
+#objective-a .svg-obj {
+    display: grid;
+    grid-template-columns: 130%;
+    align-items: center;
+}
 @media screen and (min-width: 1px) and (max-width: 767px) {
     .mission-home .mission-nav {
         width: 100%;
