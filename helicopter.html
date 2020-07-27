@@ -106,15 +106,31 @@
            $('.modelbox').removeClass('animate__fadeInRight');
            $('.modelbox').addClass('animate__fadeOutRight');
         })
-        $("#warning-icon").on("mouseover", function(){
-            $(".warning-text").css("display", "block")
-            $('.modelbox').addClass('animate__fadeInRight');
-           $('.modelbox').removeClass('animate__fadeOutRight');
-        })
-        $("#warning-icon").on("mouseout", function(){
-            $(".warning-text").css("display", "none")
-            $('.modelbox').removeClass('animate__fadeInRight');
-           $('.modelbox').addClass('animate__fadeOutRight');
+        // $("#warning-icon").on("mouseover", function(){
+        //     $(".warning-text").css("display", "block")
+        //     $('.modelbox').addClass('animate__fadeInRight');
+        //    $('.modelbox').removeClass('animate__fadeOutRight');
+        // })
+        // $("#warning-icon").on("mouseout", function(){
+        //     $(".warning-text").css("display", "none")
+        //     $('.modelbox').removeClass('animate__fadeInRight');
+        //    $('.modelbox').addClass('animate__fadeOutRight');
+        // })
+        
+        var warningbtnclicked = 0
+        $("#warning-icon").on("click", function(){
+            
+           if(warningbtnclicked === 0){
+                $(".warning-text").css("display", "block");
+                $('.warning-text').addClass('animate__fadeInRight');
+                $('.warning-text').removeClass('animate__fadeOutRight');
+                warningbtnclicked = 1;
+           }else{
+                // $(".warning-text").css("display", "none")
+                $('.warning-text').removeClass('animate__fadeInRight');
+                $('.warning-text').addClass('animate__fadeOutRight');
+                warningbtnclicked = 0;
+           }
         })
     </script>
 </body>
