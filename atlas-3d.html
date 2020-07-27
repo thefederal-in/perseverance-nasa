@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Perseverance - NASA 2020</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&family=Open+Sans:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* .label {
+            position: absolute;
+            z-index: 1;
+            top: 20px;
+            left: 20px;
+            background-color: #000000;
+            color: #FFFFFF;
+            padding: 10px;
+		} */
+    </style>
+</head>
+<body class="mission-pg">
+    <div class="preloader-wrap">
+        <div class="percentage" id="precent"></div>
+            <div class="loader">
+              <div class="trackbar">
+                <div class="loadbar"></div>
+              </div>
+              <div class="loadtext">Loading...</div>
+        </div>
+    </div>
+        <nav class="main-navigation">
+            <div class="toggle" id="toggle" onclick="expand()">
+                <i id="toggleicon">+</i>
+            </div>
+            <div class="menu" id="menu">
+                <a href="index.html" data-name="Home"><img src="img/icons/home.svg" alt=""><span class="names">home</span></a>
+                <a href="rocket.html" data-name="Rocket" ><img src="img/icons/rocket.svg" alt=""><span class="names">rocket</span></a>
+                <a href="mission.html" data-name="Mission"><img src="img/icons/mission.svg" alt=""><span class="names">mission</span></a>
+                <a href="helicopter.html" data-name="Mars Helicopter" ><img src="img/icons/helicopter.svg" alt=""><span class="names">helicopter</span></a>
+                <a href="rover-3d.html" data-name="Perseverance" class="active"><img src="img/icons/rover.svg" alt=""><span class="names">rover</span></a>
+            </div>
+        </nav>
+        <div class="model3dbox animate__animated" style="display: none;">
+            <button class="close3dmodel">X</button>
+            <div class="vertical-center">
+                <div  id="Objectname" class="label"> Click on the red hotspots to Know more  </div>
+            </div>
+        </div>
+        <button id="resetCam">Reset Camera</button>
+        <div class="main-content vertical-center">
+    
+            <div id="canvas-wrapper"></div>
+    
+    
+        </div>
+        <img src="img/icons/rover-txt.svg" class="bgtext verticalcentertxt" alt="">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+    <!-- <script src="js/tween.js"></script> -->
+    <script src="js/three.min.js"></script>
+    <script src="js/GLTFLoader.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/threex.domevents.js"></script>
+    <script src="js/threed-atlas.js"></script>
+    <script src="js/circlemenu.js"></script>
+    <script>
+
+        var width = 100,
+        perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
+        EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
+        time = parseInt((EstimatedTime/1000)%60)*100;
+
+        // Loadbar Animation
+        $(".loadbar").animate({
+            width: width + "%"
+        }, time);
+
+        // Loadbar Glow Animation
+        $(".glow").animate({
+            width: width + "%"
+        }, time);
+
+        // Percentage Increment Animation
+        var PercentageID = $("#precent"),
+        start = 0,
+        end = 100,
+        durataion = time;
+        animateValue(PercentageID, start, end, durataion);
+            
+        function animateValue(id, start, end, duration) {
+
+            var range = end - start,
+            current = start,
+            increment = end > start? 1 : -1,
+            stepTime = Math.abs(Math.floor(duration / range)),
+            obj = $(id);
+
+            var timer = setInterval(function() {
+                current += increment;
+                $(obj).text(current + "%");
+            //obj.innerHTML = current;
+                if (current == end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        // Fading Out Loadbar on Finised
+        setTimeout(function(){
+            $('.preloader-wrap').fadeOut(300);
+        }, time);
+    </script>
+</body>
+</html>
