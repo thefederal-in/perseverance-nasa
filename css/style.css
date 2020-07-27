@@ -829,6 +829,27 @@ body{ transition: all 1s; }
     font-weight: 700;
 }
 
+.warningicon3d{
+    width: 115px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 100%;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 89px;
+    left: 50%;
+    transform: translateX(-50%) ;
+    font-family: 'Montserrat', sans-serif;
+}
+.warningicon3d img{
+    width: 46%;
+    text-align: center;
+    margin-left: 22px;
+    margin-bottom: 12px;
+    
+}
+
 .mobile-only{ display:  none;}
 @media screen and (min-width: 1px) and (max-width: 767px) {
     .mission-home .mission-nav {
