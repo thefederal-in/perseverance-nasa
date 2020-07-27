@@ -43,16 +43,18 @@
         </nav>
         <div class="model3dbox animate__animated" style="display: none;">
             <button class="close3dmodel">X</button>
-            <div  id="Objectname" class="label"> Click on the red hotspots to Know more  </div>
-        
+            <div class="vertical-center">
+                <div  id="Objectname" class="label"> Click on the red hotspots to Know more  </div>
+            </div>
         </div>
+        <button id="resetCam">Reset Camera</button>
         <div class="main-content vertical-center">
     
             <div id="canvas-wrapper"></div>
     
     
         </div>
-        <img src="img/icons/mission-hor.svg" class="bgtext verticalcentertxt" alt="">
+        <img src="img/icons/rover-txt.svg" class="bgtext verticalcentertxt" alt="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
     <!-- <script src="js/tween.js"></script> -->
@@ -64,13 +66,6 @@
     <script src="js/circlemenu.js"></script>
     <script>
 
-    // $('close3dmodel').on("click", function(){
-    //     // $('.model3dbox').css('display', 'block');
-    //     alert("test")
-    //     $('.model3dbox').removeClass('animate__fadeInLeft');
-    //     $('.model3dbox').addClass('animate__fadeOutLeft');
-        
-    // })
         var width = 100,
         perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
         EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),

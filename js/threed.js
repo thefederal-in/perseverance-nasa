@@ -1,8 +1,17 @@
 var container, stats;
 var camera, controls, scene, renderer, model, raycaster, mouse;
 var loader, intersects,modelchildren = [];
-var datapoints = [{"tag":"pilot-hotpoint","name":"Mastcam-Z","position":{"x":-0.834,"y":1,"z":0.785}, "camerapos":{ "x": -1.4448278530518521, "y": 1.0025775380665005, "z": 2.1155599850918647}, "camerarot":{"x": -0.44, "y": -0.55, "z": -0.24}, "line-length":350,"link":"app/hotpoints/hotpoint_crew.html","text":"Loading info ...","image":"app/img/hotpoints/CREW.png","image-scale":150},{"tag":"pilot-hotpoint","name":"SuperCam","position":{"x":-0.276,"y":1.132,"z":0.766}, "camerapos":{"x": -0.83, "y": 1.27, "z": 2.47}, "camerarot":{"x": -0.47, "y": -0.29, "z": -0.14}, "line-length":350,"link":"app/hotpoints/hotpoint_b767-200er_seating.html","text":"Loading info ...","image":"app/img/hotpoints/SEATING.png","image-scale":150}]
-// var datapoints = [{"tag":"pilot-hotpoint","name":"Mastcam-Z","position":{"x":-0.834,"y":1.985,"z":0.785}, "camerapos":{"x": -2.84, "y": 1.13, "z": 2.84}, "camerarot":{"x": -0.93, "y": -0.42, "z": -0.50}, "line-length":350,"link":"app/hotpoints/hotpoint_crew.html","text":"Loading info ...","image":"app/img/hotpoints/CREW.png","image-scale":150},{"tag":"pilot-hotpoint","name":"SuperCam","position":{"x":-0.276,"y":2.132,"z":0.766}, "camerapos":{"x":-0.10, "y":2.31, "z":2.97}, "camerarot":{"x":-0.58, "y":-0.24, "z":-0.15}, "line-length":350,"link":"app/hotpoints/hotpoint_b767-200er_seating.html","text":"Loading info ...","image":"app/img/hotpoints/SEATING.png","image-scale":150}]
+var datapoints = [{"name":"Mastcam-Z", "position":{"x":-0.834,"y":1,"z":0.785}, "camerapos":{ "x": -1.4448278530518521, "y": 1.0025775380665005, "z": 2.1155599850918647}, "camerarot":{"x": -0.44, "y": -0.55, "z": -0.24}},{"name":"SuperCam", "position":{"x":-0.276,"y":1.132,"z":0.766}, "camerapos":{"x": -0.83, "y": 1.27, "z": 2.47}, "camerarot":{"x": -0.47, "y": -0.29, "z": -0.14}}]
+
+var instrumentdata = {
+    "Mastcam-Z": {"subname":"Zoomable Panoramic Cameras", "desc":"The Mastcam-Z is the name of the mast-mounted camera system that is equipped with a zoom function on the Perseverance rover. Mastcam-Z has cameras that can zoom in, focus, and take 3D pictures and video at high speed to allow detailed examination of distant objects."},
+    "SuperCam": {"subname":"Laser Micro-Imager", "desc":"The SuperCam on the Perseverance rover examines rocks and soils with a camera, laser and spectrometers to seek organic compounds that could be related to past life on Mars. It can identify the chemical and mineral makeup of targets as small as a pencil point from a distance of more than 20 feet (7 meters)."},
+    "Meda": {"subname":"Weather Station", "desc":"The Mars Environmental Dynamics Analyzer is known as MEDA. It makes weather measurements including wind speed and direction, temperature and humidity, and also measures the amount and size of dust particles in the Martian atmosphere."},
+    "Rimfax": {"subname":"Subsurface Radar", "desc":"The Radar Imager for Mars' Subsurface Experiment, known as RIMFAX, uses radar waves to probe the ground under the rover."},
+    "Moxie": {"subname":"Produces Oxygen from Martian CO2", "desc":"The Mars Oxygen In-Situ Resource Utilization Experiment is better known as MOXIE. NASA is preparing for human exploration of Mars, and MOXIE will demonstrate a way that future explorers might produce oxygen from the Martian atmosphere for propellant and for breathing."},
+    "Sherloc": {"subname":"Ultraviolet Spectrometer/ Watson (camera)", "desc":"The Scanning Habitable Environments with Raman & Luminescence for Organics & Chemicals has a nickname: SHERLOC. Mounted on the rover's robotic arm, SHERLOC uses spectrometers, a laser and a camera to search for organics and minerals that have been altered by watery environments and may be signs of past microbial life."},
+    "PIXL": {"subname":"X-ray Spectrometer", "desc":"The Planetary Instrument for X-ray Lithochemistry is called PIXL. PIXL has a tool called an X-ray spectrometer. It identifies chemical elements at a tiny scale. PIXL also has a camera that takes super close-up pictures of rock and soil textures. It can see features as small as a grain of salt! Together, this information helps scientists look for signs of past microbial life on Mars."}
+}
 
 init();
 // animate();
@@ -45,19 +54,8 @@ function init() {
     loader.load('perseverance.gltf', function(gltf){
         model = gltf.scene
         model.position.set(0, -1, 0)
-
-        // modelchildren.push(
-        // intersects = raycaster.intersectObjects(model.children[0].children), true);
-        // console.log()
         scene.add(model);
     });
-
-
-    // var geometry = new THREE.SphereGeometry( 0.04, 32, 32 );
-    // var material = new THREE.MeshBasicMaterial( {color: 0xff0000} );
-    // var sphere = new THREE.Mesh( geometry, material );
-    // sphere.position.set(-0.834, 1.985, 0.785)
-    // scene.add( sphere );
 
 
 
@@ -92,27 +90,11 @@ function init() {
 
         hot_spot.name = self.data.name;
         
-        // hot_spot.old_raycast = hot_spot.raycast;
-    
-        // hot_spot.raycast = function( raycaster, intersects ){
-    
-        //     hot_spot.scale.set( 4, 4, 4 );
-    
-        //     hot_spot.updateMatrixWorld();
-    
-        //     var return_value = hot_spot.old_raycast(raycaster, intersects );
-    
-        //     hot_spot.scale.set( 1, 1, 1 );
-    
-        //     hot_spot.updateMatrixWorld();
-    
-        //     return return_value;
-        // };
-    
+            
         var hot_spot_transparent = self.entities.hot_spot_transparent = new THREE.Mesh( hotspot_geometry, new THREE.MeshBasicMaterial( {  color: 0xff0000, transparent: true, opacity: 0.3 } ) );
-        hot_spot_transparent.scale.set( 4, 4, 4 );
+        hot_spot_transparent.scale.set( 1.5, 1.5, 1.5 );
         hot_spot_transparent.position.set( self.data.position.x, self.data.position.y, self.data.position.z );
-        hot_spot_transparent.visible = false
+        hot_spot_transparent.visible = true
         hot_spot_transparent.raycast = function(){};
 
         self.group.add(hot_spot);
@@ -381,7 +363,10 @@ function init() {
 
             if (roverparts.indexOf(intersects[0].object.name) >= 0) {
                 console.log("intersects", intersects[0].object.name)
-                document.getElementById("Objectname").innerHTML = "<h3>"+intersects[0].object.name+"</h3>"
+                var selectobj = intersects[0].object.name
+                document.getElementById("Objectname").innerHTML = "<h3>"+selectobj+"</h3>"
+                document.getElementById("Objectname").innerHTML += "<p>"+instrumentdata[selectobj]['subname']+"</p>"
+                document.getElementById("Objectname").innerHTML += "<p>"+instrumentdata[selectobj]['desc']+"</p>"
                 console.log("intersects", intersects[0].object.material.color)
                 $('.model3dbox').css('display', 'block');
                 $('.model3dbox').addClass('animate__fadeInLeft');
@@ -408,6 +393,37 @@ function init() {
         // alert("test")
         $('.model3dbox').removeClass('animate__fadeInLeft');
         $('.model3dbox').addClass('animate__fadeOutLeft');
+        controls.enabled = false;
+        gsap.to( camera.position, {
+            duration: 1,
+            x: -1.98,
+            y: 1.17,
+            z: 3.71,
+            onUpdate: () => {
+                controls.enabled = false;
+            },
+            onComplete: () => {
+                controls.enabled = true;
+                
+            }
+        } );
+        
+        gsap.to( camera.rotation, {
+            duration: 1,
+            x: -0.30,
+            y: -0.47,
+            z: -0.14,
+            onUpdate: () => {
+                controls.enabled = false;
+            },
+            onComplete: () => {
+                controls.enabled = true;
+                
+            }
+        } );
+        
+    })
+    $('#resetCam').on("click", function(){
         controls.enabled = false;
         gsap.to( camera.position, {
             duration: 1,

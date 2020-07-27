@@ -255,7 +255,7 @@ html.is-leaving .transition-fade {
 .modelbox {
     width: 30%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     z-index: 20;
     top: 0;
@@ -293,15 +293,46 @@ html.is-leaving .transition-fade {
 body{ transition: all 1s; }
 
 .model3dbox{
-    width: 30%;
+    width: 100%;
+    max-width: 500px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     z-index: 20;
     top: 0;
     left: 0;
     color: #FFF;
     font-family: 'Montserrat', sans-serif;
+}
+.model3dbox .vertical-center{
+    width: 70%;
+}
+.model3dbox h3{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    color: #FFFFFF;
+}
+.model3dbox p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 0 0 10px 0;
+    color: #FFFFFF;
+}
+
+#resetCam{
+    background-color: #000;
+    color: #FFF;
+    border: none;
+    transition: all .2s;
+    padding: 5px 10px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+#resetCam:hover{
+    background-color: #fd5f5f;
+    color: #000000;
 }
 
 
@@ -637,6 +668,7 @@ body{ transition: all 1s; }
   color: #fff;
   text-align: center;
   margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 @keyframes animation {
   10% {
