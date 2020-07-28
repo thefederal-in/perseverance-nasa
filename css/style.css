@@ -751,13 +751,13 @@ body{ transition: all 1s; }
     color: #ffffff;
     font-size: 10px;
     /* margin-bottom: 15px; */
-    line-height: 18px; 
+    line-height: 15px; 
 }
 
 .warning-copter{
     display: grid;
-    grid-template-columns: 50% 50%;
-    width: 215px;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    width: 300px;
     align-items: center;
     justify-content: center;
     margin: 20px auto 0 auto;
@@ -766,6 +766,17 @@ body{ transition: all 1s; }
     width: 45px !important;
     margin-bottom: 2px;
 }
+
+.explore3d a{
+    background-color: transparent;
+    font-size: 10px;
+}
+.explore3d a:hover{
+    font-weight: bold;
+    color: #000;
+    background-color: transparent;
+}
+.explore3d p{ font-size: 10px; line-height: 15px;}
 
 /* .warning-copter{
     position: absolute;
@@ -922,7 +933,7 @@ body{ transition: all 1s; }
 
 @keyframes floating {
     from { transform: translate(0,  0px); }
-    65%  { transform: translate(0, 10px); }
+    65%  { transform: translate(0, 7px); }
     to   { transform: translate(0, -0px); }    
 }
 @media screen and (min-width: 1px) and (max-width: 767px) {
