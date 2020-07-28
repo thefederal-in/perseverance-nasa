@@ -744,10 +744,12 @@ body{ transition: all 1s; }
     line-height: 18px; 
 }
 
+.videoone, .warnicon{ cursor: pointer; }
+
 .videoone p, .warnicon p{     
     font-family: 'Montserrat', sans-serif;
     color: #ffffff;
-    font-size: 12px;
+    font-size: 10px;
     /* margin-bottom: 15px; */
     line-height: 18px; 
 }
@@ -907,6 +909,21 @@ body{ transition: all 1s; }
 .mission-landing .split2two img{
     width: 46%;
     margin-bottom: 2px;
+}
+
+.floating {  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 10px); }
+    to   { transform: translate(0, -0px); }    
 }
 @media screen and (min-width: 1px) and (max-width: 767px) {
     .mission-home .mission-nav {
