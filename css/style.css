@@ -899,7 +899,7 @@ body{ transition: all 1s; }
     #border-bottom {
         width: 20%;
         left: 41.5%;
-        top: 31%;
+        top: 39% !important;
     }
 
     .modelbox {
