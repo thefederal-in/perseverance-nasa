@@ -800,16 +800,13 @@ body{ transition: all 1s; }
     opacity: 0.75;
   }
 }
-.parentDiv {
-    display: grid;
-    grid-template-columns: 50% 65% 40%;
-    align-items: center;
-    margin: 10% 0;
-}
 .obj-desc {
-    text-align: right;
+    text-align: left;
     padding: 10px 10px;
     box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 42% 95%;
+    align-items: center;
 }
 .obj-desc h4 {
     font-family: 'Montserrat', sans-serif;
@@ -830,7 +827,7 @@ body{ transition: all 1s; }
     color: #000000;
     font-weight: 400;
 }
-.parentDiv p, #objective-c p, #objective-b p, #objective-a p {
+.obj-desc p {
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
     font-weight: 400;
@@ -841,29 +838,20 @@ body{ transition: all 1s; }
 }
 .svg-obj {
     padding-top: 5%;
-}
-
-#objective-c .svg-obj, #objective-b .svg-obj {
     text-align: center;
 }
-#objective-c .svg-obj svg {
-    width: 40%;
-}
-#objective-b .svg-obj svg {
-    width: 60%;
-}
-#objective-c .obj-desc, #objective-b .obj-desc, #objective-a .obj-desc {
-    display: grid;
-    grid-template-columns: 42% 95%;
-    align-items: center;
-}
-#objective-a .obj-desc h3 {
-    text-align: left;
-}
+
 #objective-a .svg-obj {
-    display: grid;
-    grid-template-columns: 130%;
-    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+#objective-b .svg-obj {
+    width: 66%;
+    margin: 0 auto;
+}
+#objective-c .svg-obj, #objective-d .svg-obj, #techdemo .svg-obj {
+    width: 50%;
+    margin: 0 auto;
 }
 .nav-tabs { border-bottom: none; transition: all .2s; }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover, .nav-tabs>li>a, .nav-tabs>li>a:focus, .nav-tabs>li>a:hover {
@@ -979,32 +967,20 @@ body{ transition: all 1s; }
     }
 
     .copy img{ width: 195px;}
-    #objective-a .svg-obj {
-        grid-template-columns: auto;
-    }
+    
     .obj-desc h3 {
         font-size: 20px;
         line-height: 30px;
     }
-    .parentDiv p, #objective-c p, #objective-b p, #objective-a p {
+    .obj-desc p {
         font-size: 12px;
         line-height: 16px;
         padding-top: 0;
     }
-    #objective-c .obj-desc, #objective-b .obj-desc, #objective-a .obj-desc {
-        grid-template-columns: 33% 77%;
+    .obj-desc {
+        grid-template-columns: 38% 73%;
     }
-    .parentDiv {
-        grid-template-columns: 39% 63%;
-    }
-    .parentDiv .svg-obj {
-        width: 40%;
-        margin: 0 auto;
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 2;
-        grid-row-end: 2;
-    }
+
 
     .nav-tabs>li>a {
         margin-right: 0;
