@@ -188,9 +188,7 @@ html.is-leaving .transition-fade {
 .mission-objective-pg{
     background-image: url(../img/mars-yellow-bg.jpg);
     background-repeat: no-repeat;
-    /* background-color: #F1AE00; */
-    background: rgb(255,235,169);
-    background: linear-gradient(90deg, rgba(255,235,169,1) 0%, rgba(254,204,0,1) 52%, rgba(248,174,0,1) 100%);
+    background-color: #F1AE00;
 }
 
 .mission-pg{
@@ -230,7 +228,7 @@ html.is-leaving .transition-fade {
 
 .bgtext{
     position: absolute;
-    opacity: 0.3;
+    opacity: 0.2;
     z-index: -1;
     transition: all .8s;
 }
