@@ -949,11 +949,11 @@ body{ transition: all 1s; }
     .copter-home-content {
         grid-template-columns: 100%;
         padding: 30px;
-        margin-top: -120px;
+        margin-top: -100px;
     }
     .copter-home-content .coltwo {
         overflow: auto;
-        height: 347px;
+        height: 260px;
         margin-top: 20px;
     }
 
