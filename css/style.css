@@ -991,5 +991,8 @@ body{ transition: all 1s; }
 
     .mobile-only, .zoomcontrols{ display:  block;}
     .desktop-only{ display:  none;}
+    .video-one-model iframe {
+        width: 300px !important;
+    }
 
 }
