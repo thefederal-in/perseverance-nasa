@@ -84,5 +84,35 @@ $(".atlasopen").on("click", function(){
     $(".atlasclose").css("display", "block")
     $(".atlasbtn").css("display", "block")
 })
+$("#closevideomodel").on("click", function(){
+    $(".video-one-model").css("display", "none")
+})
+$(".videoone").on("click", function(){
+    $(".video-one-model").css("display", "block")
+})
+$("#warning-icon").on("click", function(){
+    $(".warning-text-model").css("display", "block")
+})
+$("#closewarntxtmodel").on("click", function(){
+    $(".warning-text-model").css("display", "none")
+})
+
+// var warningbtnclicked = 0
+// $("#warning-icon").on("click", function(){
+    
+//     if(warningbtnclicked === 0){
+//         $(".warning-text").css("display", "block");
+//         $(".warnicon p").css("display", "none");
+//         $('.warning-text').addClass('animate__fadeInRight');
+//         $('.warning-text').removeClass('animate__fadeOutRight');
+//         warningbtnclicked = 1;
+//     }else{
+//         // $(".warning-text").css("display", "none")
+//         $(".warnicon p").css("display", "block");
+//         $('.warning-text').removeClass('animate__fadeInRight');
+//         $('.warning-text').addClass('animate__fadeOutRight');
+//         warningbtnclicked = 0;
+//     }
+// })
 
 // $("#contact_form").fadeIn("slow");

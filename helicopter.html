@@ -35,6 +35,18 @@
             <div class="colone">
                 <img src="img/mars-copter.png" alt="">
                 <a href="copter-3d.html">Explore 3D</a>
+                <section class="warning-copter">
+                    <div class="warnicon">
+                        <!-- <p class="animate__animated animate__infinite animate__pulse">click here</p> -->
+                        <p class="">click here</p>
+                        <img id="warning-icon" src="img/icons/warning.png" alt="">
+                    </div>
+                    <div class="videoone">
+                        <!-- <p class="animate__animated animate__infinite animate__pulse">see video</p> -->
+                        <p class="">see video</p>
+                        <img id="warning-icon" src="img/icons/video.png" alt="">
+                    </div>
+                </section>
             </div>
             <div class="coltwo">
                 <p>The Mars Helicopter, Ingenuity, is a technology demonstration to test powered flight on another world for the first time. It is hitching a ride on the Perseverance rover. A series of flight tests will be performed over a 30-Martian-day experimental window that will begin sometime in the spring of 2021. It is also a first test of powered flight on another planet.</p>
@@ -48,13 +60,20 @@
             </div>
         </section>
     </div>
-    <section class="warning-copter">
-        <div class="warnicon">
-            <p class="animate__animated animate__infinite animate__pulse">click here</p>
-            <img id="warning-icon" src="img/icons/warning.png" alt="">
+    <div class="warning-text-model animate__animated animate__fadeIn" style="display: none;">
+        
+        <div class="vertical-center">
+            <button id="closewarntxtmodel">X</button>
+            <p>Ingenuity features four specially made carbon-fiber blades, arranged into two rotors that spin in opposite directions at around 2,400 rpm – many times faster than a passenger helicopter on Earth. It also has innovative solar cells, batteries, and other components. Ingenuity doesn't carry science instruments and is a separate experiment from the Mars 2020 Perseverance rover</p>
         </div>
-        <p class="warning-text animate__animated animate__fadeInRight" style="display: none;">Ingenuity features four specially made carbon-fiber blades, arranged into two rotors that spin in opposite directions at around 2,400 rpm – many times faster than a passenger helicopter on Earth. It also has innovative solar cells, batteries, and other components. Ingenuity doesn't carry science instruments and is a separate experiment from the Mars 2020 Perseverance rover</p>
-    </section>
+    </div>
+    <div class="video-one-model animate__animated animate__fadeIn" style="display: none;">
+        
+       <div class="vertical-center">
+        <button id="closevideomodel">X</button>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/p1WX0CATyn8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       </div>
+    </div>
     <img src="img/icons/copter-txt.svg" class="bgtext verticalcentertxt" alt="">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="js/main.js"></script>
@@ -90,25 +109,25 @@
                 "description": "Lightweight flexible legs, active vision, and an altimeter for safe landing on terrain",
             },
         }
-        $(".copter-btn").on("click", function(){
-           var getDataAtt = $(this).data();
-           console.log()
-           $(".Copter-headline").text(heli_data[getDataAtt.name]['title'])
-           $(".Copter-lead").text(heli_data[getDataAtt.name]['description'])
-           $(".modelbox").css("display", "block")
-           $("body").css("margin-left", "-30%")
-           $('.modelbox').addClass('animate__fadeInRight');
-           $('.modelbox').removeClass('animate__fadeOutRight');
-        })
-        $(".model-close-btn").on("click", function(){
-           var getDataAtt = $(this).data();
-           console.log(getDataAtt.name)
-        //    $(".modelbox").css("display", "none")
-           $("body").removeClass("model-active")
-           $("body").css("margin-left", "0%")
-           $('.modelbox').removeClass('animate__fadeInRight');
-           $('.modelbox').addClass('animate__fadeOutRight');
-        })
+        // $(".copter-btn").on("click", function(){
+        //    var getDataAtt = $(this).data();
+        //    console.log()
+        //    $(".Copter-headline").text(heli_data[getDataAtt.name]['title'])
+        //    $(".Copter-lead").text(heli_data[getDataAtt.name]['description'])
+        //    $(".modelbox").css("display", "block")
+        //    $("body").css("margin-left", "-30%")
+        //    $('.modelbox').addClass('animate__fadeInRight');
+        //    $('.modelbox').removeClass('animate__fadeOutRight');
+        // })
+        // $(".model-close-btn").on("click", function(){
+        //    var getDataAtt = $(this).data();
+        //    console.log(getDataAtt.name)
+        // //    $(".modelbox").css("display", "none")
+        //    $("body").removeClass("model-active")
+        //    $("body").css("margin-left", "0%")
+        //    $('.modelbox').removeClass('animate__fadeInRight');
+        //    $('.modelbox').addClass('animate__fadeOutRight');
+        // })
         // $("#warning-icon").on("mouseover", function(){
         //     $(".warning-text").css("display", "block")
         //     $('.modelbox').addClass('animate__fadeInRight');
@@ -120,23 +139,7 @@
         //    $('.modelbox').addClass('animate__fadeOutRight');
         // })
         
-        var warningbtnclicked = 0
-        $("#warning-icon").on("click", function(){
-            
-           if(warningbtnclicked === 0){
-                $(".warning-text").css("display", "block");
-                $(".warnicon p").css("display", "none");
-                $('.warning-text').addClass('animate__fadeInRight');
-                $('.warning-text').removeClass('animate__fadeOutRight');
-                warningbtnclicked = 1;
-           }else{
-                // $(".warning-text").css("display", "none")
-                $(".warnicon p").css("display", "block");
-                $('.warning-text').removeClass('animate__fadeInRight');
-                $('.warning-text').addClass('animate__fadeOutRight');
-                warningbtnclicked = 0;
-           }
-        })
+        
     </script>
 </body>
 </html>
