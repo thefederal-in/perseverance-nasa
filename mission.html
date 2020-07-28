@@ -207,8 +207,8 @@
                         </div>
                       </div>
                 </div>
-                <div class="colthree">
-                    <a href="helicopter.html" class="helicopterBtn">GO to Helicopter</a>
+                <div class="colthree" style="opacity: 0;">
+                    <a href="helicopter.html" class="helicopterBtn" >GO to Helicopter</a>
                  </div>
                
             </section>
@@ -228,5 +228,16 @@
     <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>    
     <script src="js/main.js"></script>
     <script src="js/circlemenu.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".nav-tabs li").click(function(){
+               console.log("clicked");
+                $(".colthree").css("opacity","0")
+            }) 
+            $(".nav-tabs li:nth-child(5)").click(function(){
+                $(".colthree").css("opacity","1")
+            }) 
+        })
+    </script>
 </body>
 </html>
