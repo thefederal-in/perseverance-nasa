@@ -266,8 +266,42 @@ function init() {
     var controls = new THREE.OrbitControls(camera);
     controls.enableDamping = true;
     // controls.maxPolarAngle = Math.PI/2;
-    controls.minDistance = 25;
-    controls.maxDistance = 50;
+    controls.enableDamping = true;
+    controls.maxPolarAngle = Math.PI/2;
+    // controls.minDistance = 200;
+    // controls.maxDistance = 200;
+    
+    if ($(window).width() < 756) {
+        controls.enableZoom = false;
+     }
+     else {
+        controls.enableZoom = true;
+     }
+
+    function zoomModel(isZoomOut, scale) {
+        if(isZoomOut){
+            controls.dollyIn(scale);
+        }else{
+            controls.dollyOut(scale);
+        }
+      }
+
+    function onZoomIn() {
+        // alert("test")
+        controls.zoomIn();
+    
+    }
+    function onZoomOut() {
+        // alert("test")
+        controls.zoomOut();
+    
+    }
+
+    var zoomIn = document.getElementById( 'zoom-in' );
+	var zoomOut = document.getElementById( 'zoom-out' );
+		
+    zoomIn.addEventListener( 'click', onZoomIn, false );
+    zoomOut.addEventListener( 'click', onZoomOut, false );
 
 
     var render = function(){
