@@ -85,10 +85,12 @@ $(".atlasopen").on("click", function(){
     $(".atlasbtn").css("display", "block")
 })
 $("#closevideomodel").on("click", function(){
-    $(".video-one-model").css("display", "none")
+    $(".video-one-model").css("display", "none");
+    $('.iframe-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
 })
 $(".videoone").on("click", function(){
-    $(".video-one-model").css("display", "block")
+    $(".video-one-model").css("display", "block");
+    $('.iframe-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
 })
 $("#warning-icon").on("click", function(){
     $(".warning-text-model").css("display", "block")
@@ -96,6 +98,7 @@ $("#warning-icon").on("click", function(){
 $("#closewarntxtmodel").on("click", function(){
     $(".warning-text-model").css("display", "none")
 })
+
 
 // var warningbtnclicked = 0
 // $("#warning-icon").on("click", function(){
