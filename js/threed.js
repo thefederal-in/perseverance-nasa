@@ -266,7 +266,38 @@ function init() {
     controls.maxPolarAngle = Math.PI/2;
     controls.minDistance = 2;
     controls.maxDistance = 6;
+    
+    if ($(window).width() < 756) {
+        controls.enableZoom = false;
+     }
+     else {
+        controls.enableZoom = true;
+     }
 
+    function zoomModel(isZoomOut, scale) {
+        if(isZoomOut){
+            controls.dollyIn(scale);
+        }else{
+            controls.dollyOut(scale);
+        }
+      }
+
+    function onZoomIn() {
+        // alert("test")
+        controls.zoomIn();
+    
+    }
+    function onZoomOut() {
+        // alert("test")
+        controls.zoomOut();
+    
+    }
+
+    var zoomIn = document.getElementById( 'zoom-in' );
+	var zoomOut = document.getElementById( 'zoom-out' );
+		
+    zoomIn.addEventListener( 'click', onZoomIn, false );
+    zoomOut.addEventListener( 'click', onZoomOut, false );
 
     var render = function(){
 
@@ -387,8 +418,12 @@ function init() {
         
     }
 
+
+
     window.addEventListener( 'mousemove', onMouseMove, false );
     window.addEventListener( 'click', onClick, false );
+
+    
     
     $('.close3dmodel').on("click", function(){
         // $('.model3dbox').css('display', 'block');
@@ -462,6 +497,14 @@ function init() {
 
 } //init()
 
+
+
+
+
+
+document.addEventListener('touchmove', function (event) {
+    if (event.scale !== 1) { event.preventDefault(); }
+  }, { passive: false });
         
 
 window.addEventListener('resize', () => {
