@@ -390,7 +390,8 @@ function init() {
             document.dispatchEvent(e);
         }
 
-        $('.warningicon3d').css('display', 'none');
+   
+            $('.warningicon3d').fadeOut( "slow" );
 
         if ( intersects.length > 0 ) {
 

@@ -53,7 +53,7 @@ function init() {
     loader = new THREE.GLTFLoader();
     loader.load('copter.gltf', function(gltf){
         model = gltf.scene
-        // model.position.set(0, -1, 0)
+        model.position.set(0, -0.1, 0)
         model.scale.set(0.4, 0.4, 0.4)
         model.rotation.set(0, -30, 0)
         scene.add(model);
@@ -268,7 +268,7 @@ function init() {
     // controls.maxPolarAngle = Math.PI/2;
     controls.enableDamping = true;
     controls.maxPolarAngle = Math.PI/2;
-    controls.minDistance = 0.4;
+    controls.minDistance = 0.2;
     controls.maxDistance = 1;
     
     if ($(window).width() < 756) {
@@ -491,7 +491,7 @@ function init() {
     })
     
     $('body').on("click", function(){
-        $('.warningicon3d').css("display", "none")
+        $('.warningicon3d').fadeOut( "slow" );
     })
 
 

@@ -491,7 +491,7 @@ function init() {
     })
 
     $('body').on("click", function(){
-        $('.warningicon3d').css("display", "none")
+        $('.warningicon3d').fadeOut( "slow" );
     })
     
  
