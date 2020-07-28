@@ -456,7 +456,9 @@ function init() {
         
     })
     
- 
+    $('body').on("click", function(){
+        $('.warningicon3d').css("display", "none")
+    })
 
 
 } //init()
