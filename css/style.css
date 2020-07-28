@@ -750,7 +750,7 @@ body{ transition: all 1s; }
     font-family: 'Montserrat', sans-serif;
     color: #ffffff;
     font-size: 12px;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     line-height: 18px; 
 }
 
@@ -897,6 +897,18 @@ body{ transition: all 1s; }
 }
 
 .mobile-only, .zoomcontrols{ display:  none;}
+
+.split2two{
+    display: grid;
+    grid-template-columns: 85% 15%;
+    column-gap: 20px;
+    box-sizing: border-box;
+}
+
+.mission-landing .split2two img{
+    width: 46%;
+    margin-bottom: 2px;
+}
 @media screen and (min-width: 1px) and (max-width: 767px) {
     .mission-home .mission-nav {
         width: 100%;
