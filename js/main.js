@@ -79,5 +79,10 @@ $(".atlasbtn").on("click", function(){
     $(".atlasclose").css("display", "none")
     $(".atlasopen").css("display", "block")
 })
+$(".atlasopen").on("click", function(){
+    $(this).css("display", "none")
+    $(".atlasclose").css("display", "block")
+    $(".atlasbtn").css("display", "block")
+})
 
 // $("#contact_form").fadeIn("slow");
