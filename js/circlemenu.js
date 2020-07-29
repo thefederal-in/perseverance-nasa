@@ -1,5 +1,6 @@
 var cirlceMenuActive = 0;
 function expand() {
+    $('.main-nav-prompt').css("display", "none")
     if(cirlceMenuActive === 0){
         document.getElementById("menu").style.transform="scale(3)";
         document.getElementById("toggleicon").style.transform="rotate(45deg)";
