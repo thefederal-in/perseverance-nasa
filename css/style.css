@@ -1048,7 +1048,7 @@ body{ transition: all 1s; }
 
     .mobile-only, .zoomcontrols{ display:  block;}
     .desktop-only{ display:  none;}
-    .video-one-model iframe {
+    .video-one-model iframe, #iframe-video {
         width: 300px !important;
     }
 
