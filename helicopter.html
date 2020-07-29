@@ -47,7 +47,7 @@
                         <img id="warning-icon" src="img/icons/warning.png" alt="">
                         <p class="">more<br>info</p>
                     </div>
-                    <div class="videoone">
+                    <div class="videoone" onclick="playVid()" >
                         <!-- <p class="animate__animated animate__infinite animate__pulse">see video</p> -->
                         <img id="warning-icon" src="img/icons/video.png" alt="">
                         <p class="">see<br>video</p>
@@ -76,7 +76,7 @@
     <div class="video-one-model animate__animated animate__fadeIn" style="display: none;">
         
        <div class="vertical-center">
-        <button id="closevideomodel">X</button>
+        <button id="closevideomodel" onclick="pauseVid()" >X</button>
            <video width="560" height="315" class="iframe-video" controls>
             <source  src="video/MarsHelicopterTrailer-640.mp4" type="video/mp4">
            </video>
