@@ -84,16 +84,23 @@ $(".atlasopen").on("click", function(){
     $(".atlasclose").css("display", "block")
     $(".atlasbtn").css("display", "block")
 })
-var vid = document.getElementsByClassName("iframe-video")
+var vid = document.getElementById("iframe-video"); 
+
+function playVid() { 
+  vid.play(); 
+} 
+
+function pauseVid() { 
+  vid.pause(); 
+} 
 $("#closevideomodel").on("click", function(){
     $(".video-one-model").css("display", "none");
-    vid.pause();
-//     $('.iframe-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+       $('.iframe-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
 })
 $(".videoone").on("click", function(){
     $(".video-one-model").css("display", "block");
-    vid.play();
-//     $('.iframe-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+   
+    $('.iframe-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
 })
 $("#warning-icon").on("click", function(){
     $(".warning-text-model").css("display", "block")
