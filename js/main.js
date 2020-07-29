@@ -84,15 +84,6 @@ $(".atlasopen").on("click", function(){
     $(".atlasclose").css("display", "block")
     $(".atlasbtn").css("display", "block")
 })
-var vid = document.getElementById("iframe-video"); 
-
-function playVid() { 
-  vid.play(); 
-} 
-
-function pauseVid() { 
-  vid.pause(); 
-} 
 $("#closevideomodel").on("click", function(){
     $(".video-one-model").css("display", "none");
        $('.iframe-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
