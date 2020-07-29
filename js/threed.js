@@ -1,16 +1,14 @@
 var container, stats;
 var camera, controls, scene, renderer, model, raycaster, mouse;
 var loader, intersects,modelchildren = [];
-var datapoints = [{"name":"Mastcam-Z", "position":{"x":-0.834,"y":1,"z":0.785}, "camerapos":{ "x": -1.4448278530518521, "y": 1.0025775380665005, "z": 2.1155599850918647}, "camerarot":{"x": -0.44, "y": -0.55, "z": -0.24}},{"name":"SuperCam", "position":{"x":-0.276,"y":1.132,"z":0.766}, "camerapos":{"x": -0.83, "y": 1.27, "z": 2.47}, "camerarot":{"x": -0.47, "y": -0.29, "z": -0.14}}]
+var datapoints = [{"name":"Mastcam-Z","position":{"x":-0.834,"y":1,"z":0.785},"camerapos":{"x": -1.44, "y": 1.00, "z": 2.11},"camerarot":{"x": -0.44, "y": -0.55, "z": -0.24}},{"name":"SuperCam","position":{"x":-0.276,"y":1.132,"z":0.766},"camerapos":{"x": -0.83, "y": 1.27, "z": 2.47},"camerarot":{"x": -0.47, "y": -0.29, "z": -0.14}},{"name":"Meda","position":{"x":-0.529,"y":0.608,"z":0.863},"camerapos":{ "x": -1.072, "y": 0.886, "z": 1.436},"camerarot":{"x": -0.552, "y": -0.566, "z": -0.319}},{"name":"PIXL","position":{"x":-0.038,"y":0.937,"z":2.008},"camerapos":{"x":-0.31,"y": 0.99,"z": 3.04},"camerarot":{"x": -0.314, "y": -0.096, "z": -0.031}},{"name":"Sherloc","position":{"x":0.568,"y":1.010,"z":2.008},"camerapos":{"x": 1.159, "y": 1.354, "z": 2.868},"camerarot":{"x": -0.441, "y": 0.350, "z": 0.160}},{"name":"Moxie","position":{"x":0.630,"y":0.126,"z":-0.254},"camerapos":{ "x": 1.978, "y": 0.048, "z": 0.288},"camerarot":{"x": -0.167, "y": 1.423, "z": 0.165}},{"name":"Rimfax","position":{"x":0.059,"y":-0.437,"z":-1.278},"camerapos":{ "x":0.998, "y": -0.100, "z": -2.003},"camerarot":{"x": 3.091, "y": 0.461, "z": -3.119}},{"name":"PowerSource","position":{"x":-0.128,"y":0.581,"z":-1.497},"camerapos":{ "x": 1.117, "y": 1.216, "z": -2.025},"camerarot":{"x":-2.600, "y": 0.441, "z": 2.890}},{"name":"CoringDrill","position":{"x":0.273,"y":1.030,"z":2.130},"camerapos":{ "x": 0.089, "y": 1.113, "z": 2.836},"camerarot":{"x": -0.374, "y": 0.029, "z": 0.011}}]
 
 var instrumentdata = {
     "Mastcam-Z": {"subname":"Zoomable Panoramic Cameras", "desc":"The Mastcam-Z is the name of the mast-mounted camera system that is equipped with a zoom function on the Perseverance rover. Mastcam-Z has cameras that can zoom in, focus, and take 3D pictures and video at high speed to allow detailed examination of distant objects."},
     "SuperCam": {"subname":"Laser Micro-Imager", "desc":"The SuperCam on the Perseverance rover examines rocks and soils with a camera, laser and spectrometers to seek organic compounds that could be related to past life on Mars. It can identify the chemical and mineral makeup of targets as small as a pencil point from a distance of more than 20 feet (7 meters)."},
-    "Meda": {"subname":"Weather Station", "desc":"The Mars Environmental Dynamics Analyzer is known as MEDA. It makes weather measurements including wind speed and direction, temperature and humidity, and also measures the amount and size of dust particles in the Martian atmosphere."},
-    "Rimfax": {"subname":"Subsurface Radar", "desc":"The Radar Imager for Mars' Subsurface Experiment, known as RIMFAX, uses radar waves to probe the ground under the rover."},
+    "Meda": {"subname":"Weather Station", "desc":"The Mars Environmental Dynamics Analyzer is known as MEDA. It makes weather measurements including wind speed and direction, temperature and humidity, and also measures the amount and size of dust particles in the Martian atmosphere."},"Rimfax": {"subname":"Subsurface Radar", "desc":"The Radar Imager for Mars' Subsurface Experiment, known as RIMFAX, uses radar waves to probe the ground under the rover."},
     "Moxie": {"subname":"Produces Oxygen from Martian CO2", "desc":"The Mars Oxygen In-Situ Resource Utilization Experiment is better known as MOXIE. NASA is preparing for human exploration of Mars, and MOXIE will demonstrate a way that future explorers might produce oxygen from the Martian atmosphere for propellant and for breathing."},
-    "Sherloc": {"subname":"Ultraviolet Spectrometer/ Watson (camera)", "desc":"The Scanning Habitable Environments with Raman & Luminescence for Organics & Chemicals has a nickname: SHERLOC. Mounted on the rover's robotic arm, SHERLOC uses spectrometers, a laser and a camera to search for organics and minerals that have been altered by watery environments and may be signs of past microbial life."},
-    "PIXL": {"subname":"X-ray Spectrometer", "desc":"The Planetary Instrument for X-ray Lithochemistry is called PIXL. PIXL has a tool called an X-ray spectrometer. It identifies chemical elements at a tiny scale. PIXL also has a camera that takes super close-up pictures of rock and soil textures. It can see features as small as a grain of salt! Together, this information helps scientists look for signs of past microbial life on Mars."}
+    "Sherloc": {"subname":"Ultraviolet Spectrometer/ Watson (camera)", "desc":"The Scanning Habitable Environments with Raman & Luminescence for Organics & Chemicals has a nickname: SHERLOC. Mounted on the rover's robotic arm, SHERLOC uses spectrometers, a laser and a camera to search for organics and minerals that have been altered by watery environments and may be signs of past microbial life."},"PIXL": {"subname":"X-ray Spectrometer", "desc":"The Planetary Instrument for X-ray Lithochemistry is called PIXL. PIXL has a tool called an X-ray spectrometer. It identifies chemical elements at a tiny scale. PIXL also has a camera that takes super close-up pictures of rock and soil textures. It can see features as small as a grain of salt! Together, this information helps scientists look for signs of past microbial life on Mars."}, "CoringDrill": {"subname":"-", "desc":"The rover's drill will use rotary motion with or without percussion to penetrate into the Martian surface to collect the precious samples. The drill is equipped with three different kinds of attachments (bits) that facilitate sample acquisition and surface analysis. The coring and regolith bits are used to collect Martian samples directly into a clean sample collection tube, while the abrader bit is used to scrape off or \"abrade\" the top layers of rocks, to expose fresh, un-weathered surfaces for study."}, "PowerSource": {"subname":"Multi-Mission Radioisotope Thermoelectric Generator", "desc":"The power source is called a \"Multi-Mission Radioisotope Thermoelectric Generator\" or MMRTG for short. The MMRTG converts heat from the natural radioactive decay of plutonium into electricity. This power system charges the rover's two primary batteries. The heat from the MMRTG is also used to keep the rover's tools and systems at their correct operating temperatures."}
 }
 
 init();
@@ -169,7 +167,7 @@ function init() {
 
         document.addEventListener("hotspot-hover", function(e){
 
-            console.log("hotpointhover", e);
+            // console.log("hotpointhover", e);
             // var selectedHotspot = e.hotpoint.entities.hot_spot_transparent
             // selectedHotspot.visible = true
             // if ($('#main-column-container').hasClass('out'))
@@ -205,8 +203,8 @@ function init() {
             var hotpoint_pos = e.hotpoint.data.camerapos
             var hotpoint_rot = e.hotpoint.data.camerarot
 
-            controls.maxPolarAngle = Math.PI/2; 
-            controls.minPolarAngle=0;
+            // controls.maxPolarAngle = Math.PI/2; 
+            // controls.minPolarAngle=0;
 
             gsap.to( camera.position, {
                 duration: 1,
@@ -263,9 +261,9 @@ function init() {
 
     var controls = new THREE.OrbitControls(camera);
     controls.enableDamping = true;
-    controls.maxPolarAngle = Math.PI/2;
-    controls.minDistance = 2;
-    controls.maxDistance = 6;
+    // controls.maxPolarAngle = Math.PI/2;
+    // controls.minDistance = 2;
+    // controls.maxDistance = 6;
     
     if ($(window).width() < 756) {
         controls.enableZoom = false;
@@ -336,10 +334,10 @@ function init() {
         var intersects = raycaster.intersectObjects( scene.children, true );
         
 
-        roverparts = ["Mastcam-Z", "SuperCam"]
+        roverparts = ["Mastcam-Z", "SuperCam", "Meda", "PIXL", "Sherloc", "Moxie", "Rimfax", "PowerSource", "CoringDrill"]
 
         if ( intersects.length > 0 ) {
-            console.log("intersects", event)
+            // console.log("intersects", event)
             
             
             if (roverparts.indexOf(intersects[0].object.name) >= 0) {
@@ -347,13 +345,13 @@ function init() {
                 intersects[0].object.callback( "hover" );   
 
             }else{
-               console.log("Other elements", intersects[0].object)
+            //    console.log("Other elements", intersects[0].object)
             }
 
             
 
         }else{
-            console.log("No elements touched")
+            // console.log("No elements touched")
         }
     }
     
@@ -381,7 +379,7 @@ function init() {
 
         var intersects = raycaster.intersectObjects( scene.children, true ); 
 
-        roverparts = ["Mastcam-Z", "SuperCam"]
+        roverparts = ["Mastcam-Z", "SuperCam", "Meda", "PIXL", "Sherloc", "Moxie", "Rimfax", "PowerSource", "CoringDrill"]
 
         function global_area_clicked(){
             var e=document.createEvent('Event');
@@ -405,7 +403,6 @@ function init() {
                 $('.model3dbox').css('display', 'block');
                 $('.model3dbox').addClass('animate__fadeInLeft');
                 $('.model3dbox').removeClass('animate__fadeOutLeft');
-                // $('.label').removeClass('animate__fadeOutRight');
                 intersects[0].object.callback( "click" );
             }else {
                 global_area_clicked();
