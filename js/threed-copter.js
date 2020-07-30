@@ -81,7 +81,7 @@ function init() {
         // --------------------------------
         // radius : 0.04, widthSegments : 32, heightSegments : 32, phiStart : 0, phiLength : 2 * Math.PI, thetaStart : 0, thetaLength : Math.PI
         var hotspot_geometry = new THREE.SphereGeometry( 
-            0.015, 32, 32, 0, 2 * Math.PI, 0,  Math.PI
+            0.006, 32, 32, 0, 2 * Math.PI, 0,  Math.PI
         );
 
         var hot_spot = self.entities.hot_spot =  new THREE.Mesh( hotspot_geometry, new THREE.MeshBasicMaterial( {  color: 0xff0000  } ) );
@@ -93,11 +93,11 @@ function init() {
         hot_spot.name = self.data.name;
         
             console.log(hot_spot.name)
-        var hot_spot_transparent = self.entities.hot_spot_transparent = new THREE.Mesh( hotspot_geometry, new THREE.MeshBasicMaterial( {  color: 0xff0000, transparent: true, opacity: 0.3 } ) );
-        hot_spot_transparent.scale.set( 1.5, 1.5, 1.5 );
-        hot_spot_transparent.position.set( self.data.position.x, self.data.position.y, self.data.position.z );
-        hot_spot_transparent.visible = true
-        hot_spot_transparent.raycast = function(){};
+            var hot_spot_transparent = self.entities.hot_spot_transparent = new THREE.Mesh( hotspot_geometry, new THREE.MeshBasicMaterial( {  color: 0xff0000, transparent: true, opacity: 0.3 } ) );
+            hot_spot_transparent.scale.set( 1.5, 1.5, 1.5 );
+            hot_spot_transparent.position.set( self.data.position.x, self.data.position.y, self.data.position.z );
+            hot_spot_transparent.visible = true
+            hot_spot_transparent.raycast = function(){};
 
         self.group.add(hot_spot);
         self.group.add(hot_spot_transparent);
