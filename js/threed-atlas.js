@@ -49,8 +49,8 @@ function init() {
 
     document.body.appendChild(renderer.domElement);
 
-    var axesHelper = new THREE.AxesHelper( 5 );
-    scene.add( axesHelper );
+    // var axesHelper = new THREE.AxesHelper( 5 );
+    // scene.add( axesHelper );
 
     // var size = 10;
     // var divisions = 10;
@@ -444,9 +444,9 @@ function init() {
         controls.enabled = false;
         gsap.to( camera.position, {
             duration: 1,
-            x: -1.98,
-            y: 1.17,
-            z: 3.71,
+            x: -9.22,
+            y: 5.45,
+            z: 17.2,
             onUpdate: () => {
                 controls.enabled = false;
             },
@@ -455,12 +455,12 @@ function init() {
                 
             }
         } );
-        
+        // _x: 8524455061537, _y: 41459456510254, _z: 19661279766863
         gsap.to( camera.rotation, {
             duration: 1,
-            x: -0.30,
-            y: -0.47,
-            z: -0.14,
+            x: -0.306,
+            y: -0.472,
+            z: -0.143,
             onUpdate: () => {
                 controls.enabled = false;
             },
