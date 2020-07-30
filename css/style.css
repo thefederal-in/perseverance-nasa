@@ -175,36 +175,36 @@ html.is-leaving .transition-fade {
 
 /* Background images based on section */
 .home-pg {
-    background-image: url(../img/mars-red-bg.jpg);
+    background-image: url(https://thefederal.com/embed/perseverance-nasa-master/img/mars-red-bg.jpg);
     background-repeat: no-repeat;
     background-color: #FD5F60;
 }
 .mission-landing-pg{
-    background-image: url(../img/landing-bg.jpg);
+    background-image: url(https://thefederal.com/embed/perseverance-nasa-master/img/landing-bg.jpg);
     background-repeat: no-repeat;
     background-color: #62d4a1;
 }
 
 .mission-objective-pg{
-    background-image: url(../img/mars-yellow-bg.jpg);
+    background-image: url(https://thefederal.com/embed/perseverance-nasa-master/img/mars-yellow-bg.jpg);
     background-repeat: no-repeat;
     background-color: #F1AE00;
 }
 
 .mission-pg{
-    background-image: url(../img/mars-dull-bg.jpg);
+    background-image: url(https://thefederal.com/embed/perseverance-nasa-master/img/mars-dull-bg.jpg);
     background-repeat: no-repeat;
     background-color: #c8cabb;
 }
 .copter-pg{
-    background-image: url(../img/mars-bluegray-bg.jpg);
+    background-image: url(https://thefederal.com/embed/perseverance-nasa-master/img/mars-bluegray-bg.jpg);
     background-repeat: no-repeat;
     background-color: #4c6570;
 
 }
 
 .rocket-pg{
-    background-image: url(../img/mars-blue-bg.jpg);
+    background-image: url(https://thefederal.com/embed/perseverance-nasa-master/img/mars-blue-bg.jpg);
     background-repeat: no-repeat;
     background-color: #69dfd1;
 }
@@ -610,12 +610,12 @@ body{ transition: all 1s; }
     background: #000;
 }
 .homepg-border#border-bottom {
-    top: 52.5%;
+    top: 39.5%;
 }
 .homepage-content .leadtext {
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 13px;
+    line-height: 16px;
     font-weight: 400;
 }
 .preloader-wrap {
@@ -910,6 +910,7 @@ body{ transition: all 1s; }
 }
 
 .mobile-only, .zoomcontrols{ display:  none;}
+.desktop-only{ display:  block;}
 
 .split2two{
     display: grid;
@@ -948,6 +949,10 @@ body{ transition: all 1s; }
     font-size: 13px;
     text-align: center;
 }
+.homepage-content .leadtext span{
+    font-size: 10px
+}
+
 @media screen and (min-width: 767px) {
 
     .nav-tabs>li>a { width: 82px; height: 40px; }
@@ -965,22 +970,24 @@ body{ transition: all 1s; }
     .mission-landing { grid-template-columns: 100%; padding: 0 25px;}
     .mission-landing .coltwo{ height: 500px; overflow: scroll; }
     .mission-objectives { grid-template-columns: 100%;     margin-top: -10%;}
-    .mission-objectives .coltwo{ height: 500px; overflow: scroll; padding: 0 10px; }
+    .mission-objectives .coltwo{ height: 500px; overflow: scroll; padding: 0 23px; }
     .mission-objectives .colone { padding: 0 10px;}
     .rocket-content {
         display: flex;
         flex-direction: column-reverse;
     }
     .atlasclose, .atlasopen {
-        width: 60%;
+        width: 55%;
         margin: 0 auto;
+        margin-top: -23%;
     }
     .rockettext {
-        padding: 0 10px !important;
+        padding: 0 17px !important;
         box-sizing: border-box;
     }
+    
     .mission-objectives .colthree {
-        text-align: right;
+        text-align: center;
         padding: 0 10px;
     }
     .atlasbtn {
@@ -995,7 +1002,7 @@ body{ transition: all 1s; }
     #border-bottom {
         width: 20%;
         left: 41.5%;
-        top: 39% !important;
+        top: 25% !important;
     }
 
     .modelbox {
@@ -1058,5 +1065,8 @@ body{ transition: all 1s; }
     /* .split2two .videoone{margin-left: 100px; } */
 
     .mission-landing .split2two img { width: 49px;}
-
+    .home-pg { padding: 0 7px }
+    .homepage-content .leadtext { margin-top: 35px;}
+    .main-page-rover { width: 96%; margin-top: 17%; }
+    
 }

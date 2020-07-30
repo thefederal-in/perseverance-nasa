@@ -1,15 +1,17 @@
 var container, stats;
 var camera, controls, scene, renderer, model, raycaster, mouse;
 var loader, intersects,modelchildren = [];
-var datapoints = [{"name":"Mastcam-Z","position":{"x":-0.834,"y":1,"z":0.785},"camerapos":{"x": -1.44, "y": 1.00, "z": 2.11},"camerarot":{"x": -0.44, "y": -0.55, "z": -0.24}},{"name":"SuperCam","position":{"x":-0.276,"y":1.132,"z":0.766},"camerapos":{"x": -0.83, "y": 1.27, "z": 2.47},"camerarot":{"x": -0.47, "y": -0.29, "z": -0.14}},{"name":"Meda","position":{"x":-0.529,"y":0.608,"z":0.863},"camerapos":{ "x": -1.072, "y": 0.886, "z": 1.436},"camerarot":{"x": -0.552, "y": -0.566, "z": -0.319}},{"name":"PIXL","position":{"x":-0.038,"y":0.937,"z":2.008},"camerapos":{"x":-0.31,"y": 0.99,"z": 3.04},"camerarot":{"x": -0.314, "y": -0.096, "z": -0.031}},{"name":"Sherloc","position":{"x":0.568,"y":1.010,"z":2.008},"camerapos":{"x": 1.159, "y": 1.354, "z": 2.868},"camerarot":{"x": -0.441, "y": 0.350, "z": 0.160}},{"name":"Moxie","position":{"x":0.630,"y":0.126,"z":-0.254},"camerapos":{ "x": 1.978, "y": 0.048, "z": 0.288},"camerarot":{"x": -0.167, "y": 1.423, "z": 0.165}},{"name":"Rimfax","position":{"x":0.059,"y":-0.437,"z":-1.278},"camerapos":{ "x":0.998, "y": -0.100, "z": -2.003},"camerarot":{"x": 3.091, "y": 0.461, "z": -3.119}},{"name":"PowerSource","position":{"x":-0.128,"y":0.581,"z":-1.497},"camerapos":{ "x": 1.117, "y": 1.216, "z": -2.025},"camerarot":{"x":-2.600, "y": 0.441, "z": 2.890}},{"name":"CoringDrill","position":{"x":0.273,"y":1.030,"z":2.130},"camerapos":{ "x": 0.089, "y": 1.113, "z": 2.836},"camerarot":{"x": -0.374, "y": 0.029, "z": 0.011}}]
+var datapoints = [{"name":"Rotors","position":{"x":0.05,"y":0.05,"z":0.1},"camerapos":{"x": -0.028, "y":0.176, "z": 0.255},"camerarot":{"x": -0.603, "y": -0.091, "z": -0.062}},{"name":"solarcells","position":{"x":0,"y":0.1,"z":0},"camerapos":{"x": -0.126, "y": 0.286, "z": 0.184},"camerarot":{"x": -0.999, "y": -0.355, "z": -0.496}},{"name":"communicator","position":{"x":-0.04,"y":0,"z":0},"camerapos":{"x": -0.225, "y": 0.008, "z": -0.116},"camerarot":{"x": -3.068, "y": -1.094, "z": -3.076}},{"name":"insulation","position":{"x":-0.04,"y":-0.04,"z":0},"camerapos":{"x": -0.250, "y": 0.037, "z": 0.008},"camerarot":{"x": -1.345, "y": -1.417, "z": -1.343}},{"name":"othersensors","position":{"x":-0.005,"y":-0.04,"z":-0.05},"camerapos":{"x": 0.025, "y": -0.035, "z": -0.249},"camerarot":{"x": 2.999, "y": 0.102, "z": -3.126}},{"name":"legs","position":{"x":0.05,"y":-0.04,"z":0.08},"camerapos":{"x": 0.022, "y": -0.045, "z": 0.276},"camerarot":{"x": 0.164, "y": 0.079, "z": -0.013}},{"name":"camera","position":{"x":0.03,"y":0,"z":0},"camerapos":{"x": 0.217, "y": 0.067, "z": 0.021},"camerarot":{"x": -1.268, "y": 1.257, "z": 1.254}}]
 
 var instrumentdata = {
-    "Mastcam-Z": {"subname":"Zoomable Panoramic Cameras", "desc":"The Mastcam-Z is the name of the mast-mounted camera system that is equipped with a zoom function on the Perseverance rover. Mastcam-Z has cameras that can zoom in, focus, and take 3D pictures and video at high speed to allow detailed examination of distant objects."},
-    "SuperCam": {"subname":"Laser Micro-Imager", "desc":"The SuperCam on the Perseverance rover examines rocks and soils with a camera, laser and spectrometers to seek organic compounds that could be related to past life on Mars. It can identify the chemical and mineral makeup of targets as small as a pencil point from a distance of more than 20 feet (7 meters)."},
-    "Meda": {"subname":"Weather Station", "desc":"The Mars Environmental Dynamics Analyzer is known as MEDA. It makes weather measurements including wind speed and direction, temperature and humidity, and also measures the amount and size of dust particles in the Martian atmosphere."},"Rimfax": {"subname":"Subsurface Radar", "desc":"The Radar Imager for Mars' Subsurface Experiment, known as RIMFAX, uses radar waves to probe the ground under the rover."},
-    "Moxie": {"subname":"Produces Oxygen from Martian CO2", "desc":"The Mars Oxygen In-Situ Resource Utilization Experiment is better known as MOXIE. NASA is preparing for human exploration of Mars, and MOXIE will demonstrate a way that future explorers might produce oxygen from the Martian atmosphere for propellant and for breathing."},
-    "Sherloc": {"subname":"Ultraviolet Spectrometer/ Watson (camera)", "desc":"The Scanning Habitable Environments with Raman & Luminescence for Organics & Chemicals has a nickname: SHERLOC. Mounted on the rover's robotic arm, SHERLOC uses spectrometers, a laser and a camera to search for organics and minerals that have been altered by watery environments and may be signs of past microbial life."},"PIXL": {"subname":"X-ray Spectrometer", "desc":"The Planetary Instrument for X-ray Lithochemistry is called PIXL. PIXL has a tool called an X-ray spectrometer. It identifies chemical elements at a tiny scale. PIXL also has a camera that takes super close-up pictures of rock and soil textures. It can see features as small as a grain of salt! Together, this information helps scientists look for signs of past microbial life on Mars."}, "CoringDrill": {"subname":"-", "desc":"The rover's drill will use rotary motion with or without percussion to penetrate into the Martian surface to collect the precious samples. The drill is equipped with three different kinds of attachments (bits) that facilitate sample acquisition and surface analysis. The coring and regolith bits are used to collect Martian samples directly into a clean sample collection tube, while the abrader bit is used to scrape off or \"abrade\" the top layers of rocks, to expose fresh, un-weathered surfaces for study."}, "PowerSource": {"subname":"Multi-Mission Radioisotope Thermoelectric Generator", "desc":"The power source is called a \"Multi-Mission Radioisotope Thermoelectric Generator\" or MMRTG for short. The MMRTG converts heat from the natural radioactive decay of plutonium into electricity. This power system charges the rover's two primary batteries. The heat from the MMRTG is also used to keep the rover's tools and systems at their correct operating temperatures."}
-}
+    "Rotors": {"subname":"Flies on Mars", "desc":"Rotors are designed for low Reynolds number flows in the thin Martian Atmosphere. The rotor tip velocities stay comfortably subsonic"},
+    "solarcells": {"subname":"Operates daily", "desc":"Energy from solar cells is used to recharge the battery"},
+    "communicator": {"subname":"Commands & data", "desc":"Communicates to the rover electra ultra-high frequency(UHF) radio. A radiometric beacon signal allows the Heli to stay away from the Rover"},
+    "insulation": {"subname":"Survives the night", "desc":"Aerogel insulation and a heater keeps the batteries warm overnight"},
+    "othersensors": {"subname":"Autonomous Mobility", "desc":"A camera and other sensors together with a fault-tolerant computer provides a high level of autonomy"},
+    "legs": {"subname":"Lands on terrain", "desc":"Lightweight flexible legs, active vision, and an altimeter for safe landing on terrain"},
+    "camera": {"subname":"Images wide areas", "desc":"A High-resolution camera is used to take images at a variety of locations and altitudes within 0.6km of the rover"}}
+
 
 init();
 // animate();
@@ -22,7 +24,7 @@ function init() {
         // camera.position.x = -3.38;
         // camera.position.y = 3;
         // camera.position.z = 2.30;
-        camera.position.set(-1.98, 1.17, 3.71)
+        camera.position.set(-0.24, 0.14, 0.44)
         // camera.rotation.set(-0.65, -0.82, -0.51)
         
         
@@ -41,7 +43,7 @@ function init() {
     // var axesHelper = new THREE.AxesHelper( 5 );
     // scene.add( axesHelper );
 
-    // var size = 10;
+    // var size = 5;
     // var divisions = 10;
 
     // var gridHelper = new THREE.GridHelper( size, divisions );
@@ -49,9 +51,11 @@ function init() {
 
     // Load the 3D model
     loader = new THREE.GLTFLoader();
-    loader.load('perseverance.gltf', function(gltf){
+    loader.load('copter.gltf', function(gltf){
         model = gltf.scene
-        model.position.set(0, -1, 0)
+        model.position.set(0, -0.1, 0)
+        model.scale.set(0.4, 0.4, 0.4)
+        model.rotation.set(0, -30, 0)
         scene.add(model);
     });
 
@@ -77,7 +81,7 @@ function init() {
         // --------------------------------
         // radius : 0.04, widthSegments : 32, heightSegments : 32, phiStart : 0, phiLength : 2 * Math.PI, thetaStart : 0, thetaLength : Math.PI
         var hotspot_geometry = new THREE.SphereGeometry( 
-            0.04, 32, 32, 0, 2 * Math.PI, 0,  Math.PI
+            0.015, 32, 32, 0, 2 * Math.PI, 0,  Math.PI
         );
 
         var hot_spot = self.entities.hot_spot =  new THREE.Mesh( hotspot_geometry, new THREE.MeshBasicMaterial( {  color: 0xff0000  } ) );
@@ -88,7 +92,7 @@ function init() {
 
         hot_spot.name = self.data.name;
         
-            
+            console.log(hot_spot.name)
         var hot_spot_transparent = self.entities.hot_spot_transparent = new THREE.Mesh( hotspot_geometry, new THREE.MeshBasicMaterial( {  color: 0xff0000, transparent: true, opacity: 0.3 } ) );
         hot_spot_transparent.scale.set( 1.5, 1.5, 1.5 );
         hot_spot_transparent.position.set( self.data.position.x, self.data.position.y, self.data.position.z );
@@ -256,13 +260,15 @@ function init() {
 
 
     // using reusable function addLight(source, xpos, ypos, zpos) 
-    addLight(new THREE.DirectionalLight(0xFFFFFF, 0.8, 500), -17.844, 1.107, 1.456);
-    addLight(new THREE.DirectionalLight(0xFFFFFF, 0.8, 500), 0.003, 10, 7.500);
-    addLight(new THREE.DirectionalLight(0xFFFFFF, 0.8, 500), 5, 10, -10.824);
-    addLight(new THREE.DirectionalLight(0xFFFFFF, 0.8, 500), 17.959, 1.201, 1.061);
-    addLight(new THREE.DirectionalLight(0xFFFFFF, 0.8, 500), -0.187, -7.189, -0.305);
-    addLight(new THREE.DirectionalLight(0xFFFFFF, 0.4, 500), -0.209, -2.119, 8.311);
-
+    addLight(new THREE.DirectionalLight(0xFFFFFF, 1, 500), -4.471, 0.429, -4.438);
+    addLight(new THREE.DirectionalLight(0xFFFFFF, 1, 500), -3.500, 1.068, 3.811);
+    addLight(new THREE.DirectionalLight(0xFFFFFF, 1, 500), 3.706, 0.840, 4.274);
+    addLight(new THREE.DirectionalLight(0xFFFFFF, 1, 500), -3.500, 1.068, 3.811);
+    addLight(new THREE.DirectionalLight(0xFFFFFF, 1, 500), 0.118, 1.109, 0.101);
+    addLight(new THREE.DirectionalLight(0xFFFFFF, 1, 500), 2.903, 0.728, -4.200);
+    addLight(new THREE.DirectionalLight(0xFFFFFF, 1, 500), -0.041, -2.139, -0.091);
+    addLight(new THREE.AmbientLight(0xFFFFFF, 4, 500), 0.092, 0.529, -0.633);
+    addLight(new THREE.AmbientLight(0xFFFFFF, 4, 500), 0.092, 0.529, -0.633);
     var controls = new THREE.OrbitControls(camera);
     controls.enableDamping = true;
     // controls.maxPolarAngle = Math.PI/2;
@@ -338,7 +344,7 @@ function init() {
         var intersects = raycaster.intersectObjects( scene.children, true );
         
 
-        roverparts = ["Mastcam-Z", "SuperCam", "Meda", "PIXL", "Sherloc", "Moxie", "Rimfax", "PowerSource", "CoringDrill"]
+        roverparts = ["Rotors"]
 
         if ( intersects.length > 0 ) {
             // console.log("intersects", event)
@@ -383,7 +389,7 @@ function init() {
 
         var intersects = raycaster.intersectObjects( scene.children, true ); 
 
-        roverparts = ["Mastcam-Z", "SuperCam", "Meda", "PIXL", "Sherloc", "Moxie", "Rimfax", "PowerSource", "CoringDrill"]
+        roverparts = ["Rotors", "solarcells", "communicator", "insulation", "othersensors", "legs", "camera"]
 
         function global_area_clicked(){
             var e=document.createEvent('Event');
@@ -395,15 +401,19 @@ function init() {
    
             $('.warningicon3d').fadeOut( "slow" );
 
+        
+
         if ( intersects.length > 0 ) {
 
+            // console.log(intersects[0].object)
+            
             if (roverparts.indexOf(intersects[0].object.name) >= 0) {
+                console.log("test")
                 console.log("intersects", intersects[0].object.name)
                 var selectobj = intersects[0].object.name
                 document.getElementById("Objectname").innerHTML = "<h3>"+selectobj+"</h3>"
                 document.getElementById("Objectname").innerHTML += "<p>"+instrumentdata[selectobj]['subname']+"</p>"
                 document.getElementById("Objectname").innerHTML += "<p>"+instrumentdata[selectobj]['desc']+"</p>"
-                console.log("intersects", intersects[0].object.material.color)
                 $('.model3dbox').css('display', 'block');
                 $('.model3dbox').addClass('animate__fadeInLeft');
                 $('.model3dbox').removeClass('animate__fadeOutLeft');
@@ -428,16 +438,14 @@ function init() {
     
     
     $('.close3dmodel').on("click", function(){
-        // $('.model3dbox').css('display', 'block');
-        // alert("test")
         $('.model3dbox').removeClass('animate__fadeInLeft');
         $('.model3dbox').addClass('animate__fadeOutLeft');
         controls.enabled = false;
         gsap.to( camera.position, {
             duration: 1,
-            x: -1.98,
-            y: 1.17,
-            z: 3.71,
+            x: -0.24,
+            y: 0.14,
+            z: 0.44,
             onUpdate: () => {
                 controls.enabled = false;
             },
@@ -466,9 +474,9 @@ function init() {
         controls.enabled = false;
         gsap.to( camera.position, {
             duration: 1,
-            x: -1.98,
-            y: 1.17,
-            z: 3.71,
+            x: -0.24,
+            y: 0.14,
+            z: 0.44,
             onUpdate: () => {
                 controls.enabled = false;
             },
